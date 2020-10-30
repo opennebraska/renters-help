@@ -4,12 +4,12 @@ import Grid from "@material-ui/core/Grid";
 import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
-import {StepNames} from "./StepNames";
+import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import FormHelperText from "@material-ui/core/FormHelperText";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -24,45 +24,51 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function GovernmentHelp({currentStep}) {
+export default function IncomeQualifications({currentStep}) {
 
     const classes = useStyles();
     const [state, setState] = React.useState({
-        yes: false,
-        no: false,
+        noIncome: false,
+        stimulusCheck: false,
+        underIncomeThreshold: false
     })
 
     const handleChange = (event) => {
         setState({...state, [event.target.name]: event.target.checked})
     }
 
-    const { yes, no } = state;
+    const {noIncome, stimulusCheck, underIncomeThreshold} = state;
     const render = () => {
-        if (currentStep !== StepNames.GOVERNMENT_HELP) {
+        if (currentStep !== QualificationSteps.INCOME_QUALIFICATIONS) {
             return null
         }
         return (<Grid container dirction='column' alignItems='center' justify='center'>
             <Grid item xs={12} md={3}>
                 <Paper>
                     <Typography variant="h6" className={classes.title}>
-                        Did you do your best to get government help to pay the rent?
+                        Income Qualification
                     </Typography>
                     <Typography variant='body1'>
-                        If you do not qualify for any help from the government, or if applications were closed, your application was waitlisted, or assistance programs were no longer available or if you applied and you were denied, answer ‘Yes.’
+                        Check all that apply
                     </Typography>
                     <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend">Assign responsibility</FormLabel>
                         <FormGroup>
                             <FormControlLabel
-                                control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
-                                label="Yes"
+                                control={<Checkbox checked={noIncome} onChange={handleChange} name="noIncome"/>}
+                                label="I did not report any income to the I.R.S. for 2019"
                             />
                             <FormControlLabel
-                                control={<Checkbox checked={no} onChange={handleChange}
-                                                   name="no"/>}
-                                label="No"
+                                control={<Checkbox checked={stimulusCheck} onChange={handleChange}
+                                                   name="stimulusCheck"/>}
+                                label="I got a stimulus check (Economic Impact Payment) in 2020"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={underIncomeThreshold} onChange={handleChange}
+                                                   name="underIncomeThreshold"/>}
+                                label="I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return"
                             />
                         </FormGroup>
-                        <FormHelperText>What are "best efforts" and "government help"? Add link or additional text to explain.</FormHelperText>
                     </FormControl>
                 </Paper>
             </Grid>
@@ -72,6 +78,6 @@ export default function GovernmentHelp({currentStep}) {
     return render();
 }
 
-GovernmentHelp.propTypes = {
+IncomeQualifications.propTypes = {
     currentStep: PropTypes.number,
 }

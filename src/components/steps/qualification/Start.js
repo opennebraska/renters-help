@@ -9,7 +9,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import {CheckCircleRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
-import {StepNames} from "./StepNames";
+import {QualificationSteps} from "../StepNames";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -31,7 +31,7 @@ export default function Start({currentStep}) {
     const [secondary, setSecondary] = React.useState(false);
 
     const render = () => {
-        if (currentStep !== StepNames.START) {
+        if (currentStep !== QualificationSteps.START) {
             return null
         }
         return (<Grid container dirction='column' alignItems='center' justify='center'>

@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
-import {StepNames} from "./StepNames";
+import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -41,7 +41,7 @@ export default function UnsafeLivingConditions({currentStep}) {
 
     const {likelyBecomeHomeless, moveToShelter, moveToCloseQuarters, noOtherSafeChoices, otherChoicesMoreExpensive, notAtRisk} = state;
     const render = () => {
-        if (currentStep !== StepNames.UNSAFE_LIVING_CONDITIONS) {
+        if (currentStep !== QualificationSteps.UNSAFE_LIVING_CONDITIONS) {
             return null
         }
         return (<Grid container dirction='column' alignItems='center' justify='center'>

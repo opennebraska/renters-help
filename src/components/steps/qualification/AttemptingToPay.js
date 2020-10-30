@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
-import {StepNames} from "./StepNames";
+import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -43,7 +43,7 @@ export default function AttemptingToPay({currentStep}) {
 
     const { yes, no } = state;
     const render = () => {
-        if (currentStep !== StepNames.ATTEMPTING_TO_PAY) {
+        if (currentStep !== QualificationSteps.ATTEMPTING_TO_PAY) {
             return null
         }
 
