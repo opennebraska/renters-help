@@ -10,6 +10,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import {CheckCircleRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {LetterBuilderSteps} from "../StepNames";
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select";
+import {States} from "../states";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -27,8 +33,22 @@ const useStyles = makeStyles(() => ({
 export default function PersonalInformation({currentStep}) {
 
     const classes = useStyles();
-    const [dense, setDense] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
+    const [state, setState] = React.useState({
+        firstName: '',
+        lastName: '',
+        address: '',
+        unit: '',
+        city: '',
+        state: 'Nebraska',
+        zip: '',
+    })
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setState({...state, [id]: value})
+    }
+
+    const handleStateChange = (e) => { setState({...state, state: e.target.value})}
 
     const render = () => {
         if (currentStep !== LetterBuilderSteps.PERSONAL_INFO) {
@@ -45,36 +65,21 @@ export default function PersonalInformation({currentStep}) {
                         you qualify to use this self-help tool.
                     </Typography>
                     <div className={classes.demo}>
-                        <List dense={dense}>
-                            <ListItem>
-                                <ListItemIcon>
-                                    <CheckCircleRounded/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="Make sure you qualify (there are 5 question we will ask you)."
-                                    secondary={secondary ? 'Secondary text' : null}
-                                />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemIcon>
-                                    <CheckCircleRounded/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="Fill out your address and your landlord's information."
-                                    secondary={secondary ? 'Secondary text' : null}
-                                />
-                            </ListItem>
-                            <ListItem>
-                                <ListItemIcon>
-                                    <CheckCircleRounded/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="Send the letter to your landlord (we can help you with that)."
-                                    secondary={secondary ? 'Secondary text' : null}
-                                />
-                            </ListItem>
-                        </List>
+                        <TextField id="firstName" label="First Name" value={state.firstName} onChange={handleChange} variant="outlined" />
+                        <TextField id="lastName" label="Last Name" value={state.lastName} onChange={handleChange} variant="outlined" />
+                        <TextField id="address" label="Current Address" value={state.address} onChange={handleChange} variant="outlined" />
+                        <TextField id="unit" label="Unit (optional)" value={state.unit} onChange={handleChange} variant="outlined" />
+                        <TextField id="city" label="City" value={state.city} onChange={handleChange} variant="outlined" />
+                        <TextField id="state" label="State" value={state.state} onChange={handleChange} variant="outlined" />
+                        <FormControl variant="outlined">
+                            <InputLabel id="state-label">State</InputLabel>
+                            <Select labelId="state-select" id="state" value={state.state} onChange={handleStateChange} autoWidth>
+                                {Object.values(States).map((st) => <MenuItem id="state" value={st}>{st}</MenuItem>)}
+                            </Select>
+                        </FormControl>
+                        <TextField id="zip" label="Zip" value={state.zip} onChange={handleChange} variant="outlined" />
                     </div>
+                    {JSON.stringify(state)}
                 </Paper>
             </Grid>
         </Grid>)

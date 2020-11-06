@@ -25,7 +25,7 @@ export default class FormContainer extends Component {
         return (
             <React.Fragment>
                 <h1>Renters Help form</h1>
-                <StepCounter currentStep={currentStep}/>
+                <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
                 {formNumber === 1 &&
                 <form onSubmit={() => alert('Submited')}>
