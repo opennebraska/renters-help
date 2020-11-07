@@ -9,7 +9,11 @@ import UnsafeLivingConditions from "./steps/qualification/UnsafeLivingConditions
 import AttemptingToPay from "./steps/qualification/AttemptingToPay";
 import Qualified from "./steps/qualification/Qualified";
 import PersonalInformation from "./steps/letter-builder/PersonalInformation";
-import {QualificationSteps} from "./steps/StepNames";
+import {LetterBuilderSteps, QualificationSteps} from "./steps/StepNames";
+import LandlordInfo from "./steps/letter-builder/LandlordInfo";
+import PreviewLetter from "./steps/letter-builder/PreviewLetter";
+import Signature from "./steps/letter-builder/Signature";
+import DownloadLetter from "./steps/letter-builder/DownloadLetter";
 
 export default class FormContainer extends Component {
     constructor(props) {
@@ -42,7 +46,10 @@ export default class FormContainer extends Component {
                 {formNumber === 2 &&
                 <form onSubmit={() => alert('Submited')}>
                     <PersonalInformation currentStep={currentStep}/>
-
+                    <LandlordInfo currentStep={currentStep}/>
+                    <PreviewLetter currentStep={currentStep}/>
+                    <Signature currentStep={currentStep}/>
+                    <DownloadLetter currentStep={currentStep} />
                 </form>
                 }
 
@@ -64,6 +71,13 @@ export default class FormContainer extends Component {
     }
 
     previousStep = () => {
-        this.setState({currentStep: this.state.currentStep - 1})
+        let {currentStep, formNumber} = this.state;
+        if (formNumber === 2 && currentStep === LetterBuilderSteps.PERSONAL_INFO) {
+            formNumber = 1;
+            currentStep = QualificationSteps.FINAL_STEP;
+        } else {
+            currentStep = currentStep - 1;
+        }
+        this.setState({currentStep, formNumber})
     }
 }

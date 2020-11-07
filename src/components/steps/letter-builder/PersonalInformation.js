@@ -70,7 +70,6 @@ export default function PersonalInformation({currentStep}) {
                         <TextField id="address" label="Current Address" value={state.address} onChange={handleChange} variant="outlined" />
                         <TextField id="unit" label="Unit (optional)" value={state.unit} onChange={handleChange} variant="outlined" />
                         <TextField id="city" label="City" value={state.city} onChange={handleChange} variant="outlined" />
-                        <TextField id="state" label="State" value={state.state} onChange={handleChange} variant="outlined" />
                         <FormControl variant="outlined">
                             <InputLabel id="state-label">State</InputLabel>
                             <Select labelId="state-select" id="state" value={state.state} onChange={handleStateChange} autoWidth>
@@ -79,7 +78,6 @@ export default function PersonalInformation({currentStep}) {
                         </FormControl>
                         <TextField id="zip" label="Zip" value={state.zip} onChange={handleChange} variant="outlined" />
                     </div>
-                    {JSON.stringify(state)}
                 </Paper>
             </Grid>
         </Grid>)

@@ -10,5 +10,11 @@ export const QualificationSteps = {
 }
 
 export const LetterBuilderSteps = {
-    PERSONAL_INFO: 1
+    FIRST_STEP: 1,
+    PERSONAL_INFO: 1,
+    LANDLORD_INFO: 2,
+    PREVIEW_LETTER: 3,
+    SIGNATURE: 4,
+    DOWNLOAD_LETTER: 5,
+    FINAL_STEP: 5,
 }
