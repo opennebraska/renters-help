@@ -75,7 +75,7 @@ export default class FormContainer extends Component {
         if (formNumber === 2 && currentStep === LetterBuilderSteps.PERSONAL_INFO) {
             formNumber = 1;
             currentStep = QualificationSteps.FINAL_STEP;
-        } else {
+        } else if(!(formNumber === 1 && currentStep === QualificationSteps.START)) {
             currentStep = currentStep - 1;
         }
         this.setState({currentStep, formNumber})
