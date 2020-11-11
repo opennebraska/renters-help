@@ -5,9 +5,6 @@ import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {LetterBuilderSteps} from "../StepNames";
-import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
-import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(() => ({
     root: {

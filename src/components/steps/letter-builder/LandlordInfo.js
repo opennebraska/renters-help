@@ -7,9 +7,6 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(() => ({
@@ -42,7 +39,7 @@ export default function LandlordInfo({currentStep}) {
             return null
         }
 
-        const { company, fullName } = state;
+        const {company, fullName} = state;
         return (<Grid container dirction='column' alignItems='center' justify='center'>
             <Grid item xs={12} md={3}>
                 <Paper>
@@ -57,8 +54,10 @@ export default function LandlordInfo({currentStep}) {
                     </Typography>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
-                            <TextField id="company" label="company" value={company} onChange={handleChange} variant={"outlined"} />
-                            <TextField id="fullName" label="fullName" value={fullName} onChange={handleChange} variant={"outlined"} />
+                            <TextField id="company" label="company" value={company} onChange={handleChange}
+                                       variant={"outlined"}/>
+                            <TextField id="fullName" label="fullName" value={fullName} onChange={handleChange}
+                                       variant={"outlined"}/>
                         </FormGroup>
                     </FormControl>
                 </Paper>
