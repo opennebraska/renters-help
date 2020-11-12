@@ -6,6 +6,8 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -20,46 +22,46 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function LandlordInfo({currentStep}) {
+export default function LandlordInfo({state, setState}) {
 
     const classes = useStyles();
-    const [state, setState] = React.useState({
+    const [form, setForm] = React.useState({
         company: '',
         fullName: '',
     })
 
     const handleChange = (event) => {
-        setState({...state, [event.target.id]: event.target.value})
+        setForm({...form, [event.target.id]: event.target.value})
     }
 
-    const render = () => {
-        if (currentStep !== QualificationSteps.GOVERNMENT_HELP) {
-            return null
-        }
-
-        const {company, fullName} = state;
-        return (<React.Fragment>
-            <Typography variant="h6" className={classes.title}>
-                Enter your landlord's information
-            </Typography>
-            <Typography variant='body1'>
-                This information will determine where your letter is sent. You can send this information to go
-                to your landlord, the owner of the property where you live, or another person who has the right
-                to have you evicted or removed from where you live. If you are unsure where to send this notice,
-                please look at your lease or ask your landlord where you may send a legal notice.
-            </Typography>
-            <FormControl component="fieldset" className={classes.formControl}>
-                <FormGroup>
-                    <TextField id="company" label="company" value={company} onChange={handleChange}
-                               variant={"outlined"}/>
-                    <TextField id="fullName" label="fullName" value={fullName} onChange={handleChange}
-                               variant={"outlined"}/>
-                </FormGroup>
-            </FormControl>
-        </React.Fragment>)
+    if (state.currentStep !== QualificationSteps.GOVERNMENT_HELP) {
+        return null
     }
 
-    return render();
+    const {company, fullName} = form;
+    return (<React.Fragment>
+        <Typography variant="h6" className={classes.title}>
+            Enter your landlord's information
+        </Typography>
+        <Typography variant='body1'>
+            This information will determine where your letter is sent. You can send this information to go
+            to your landlord, the owner of the property where you live, or another person who has the right
+            to have you evicted or removed from where you live. If you are unsure where to send this notice,
+            please look at your lease or ask your landlord where you may send a legal notice.
+        </Typography>
+        <FormControl component="fieldset" className={classes.formControl}>
+            <FormGroup>
+                <TextField id="company" label="company" value={company} onChange={handleChange}
+                           variant={"outlined"}/>
+                <TextField id="fullName" label="fullName" value={fullName} onChange={handleChange}
+                           variant={"outlined"}/>
+            </FormGroup>
+        </FormControl>
+        <div>
+            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+        </div>
+    </React.Fragment>)
 }
 
 LandlordInfo.propTypes = {

@@ -8,6 +8,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import {Button} from "@material-ui/core";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -22,21 +24,21 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function GovernmentHelp({currentStep}) {
+export default function GovernmentHelp({state, setState}) {
 
     const classes = useStyles();
-    const [state, setState] = React.useState({
+    const [form, setForm] = React.useState({
         yes: false,
         no: false,
     })
 
     const handleChange = (event) => {
-        setState({...state, [event.target.name]: event.target.checked})
+        setForm({...form, [event.target.name]: event.target.checked})
     }
 
-    const {yes, no} = state;
+    const {yes, no} = form;
     const render = () => {
-        if (currentStep !== QualificationSteps.GOVERNMENT_HELP) {
+        if (state.currentStep !== QualificationSteps.GOVERNMENT_HELP) {
             return null
         }
         return (<React.Fragment>
@@ -63,6 +65,8 @@ export default function GovernmentHelp({currentStep}) {
                 <FormHelperText>What are "best efforts" and "government help"? Add link or additional text to
                     explain.</FormHelperText>
             </FormControl>
+            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
         </React.Fragment>)
     }
 

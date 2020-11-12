@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,10 +23,10 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function UnsafeLivingConditions({currentStep}) {
+export default function UnsafeLivingConditions({state, setState}) {
 
     const classes = useStyles();
-    const [state, setState] = React.useState({
+    const [form, setForm] = React.useState({
         likelyBecomeHomeless: false,
         moveToShelter: false,
         moveToCloseQuarters: false,
@@ -34,12 +36,12 @@ export default function UnsafeLivingConditions({currentStep}) {
     })
 
     const handleChange = (event) => {
-        setState({...state, [event.target.name]: event.target.checked})
+        setForm({...form, [event.target.name]: event.target.checked})
     }
 
-    const {likelyBecomeHomeless, moveToShelter, moveToCloseQuarters, noOtherSafeChoices, otherChoicesMoreExpensive, notAtRisk} = state;
+    const {likelyBecomeHomeless, moveToShelter, moveToCloseQuarters, noOtherSafeChoices, otherChoicesMoreExpensive, notAtRisk} = form;
     const render = () => {
-        if (currentStep !== QualificationSteps.UNSAFE_LIVING_CONDITIONS) {
+        if (state.currentStep !== QualificationSteps.UNSAFE_LIVING_CONDITIONS) {
             return null
         }
         return (<React.Fragment>
@@ -83,6 +85,8 @@ export default function UnsafeLivingConditions({currentStep}) {
                     />
                 </FormGroup>
             </FormControl>
+            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
         </React.Fragment>)
     }
 

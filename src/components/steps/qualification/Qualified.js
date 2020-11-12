@@ -8,6 +8,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import {KeyboardArrowRightRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
+import Button from "@material-ui/core/Button";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -22,12 +24,11 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function Qualified({currentStep}) {
+export default function Qualified({state, setState}) {
 
     const classes = useStyles();
 
-    const render = () => {
-        if (currentStep !== QualificationSteps.QUALIFIED) {
+        if (state.currentStep !== QualificationSteps.QUALIFIED) {
             return null
         }
         return (<React.Fragment>
@@ -69,10 +70,11 @@ export default function Qualified({currentStep}) {
                     </ListItem>
                 </List>
             </div>
+            <div>
+                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+            </div>
         </React.Fragment>)
-    }
-
-    return render();
 }
 
 Qualified.propTypes = {

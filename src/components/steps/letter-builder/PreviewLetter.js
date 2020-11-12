@@ -6,6 +6,8 @@ import {LetterBuilderSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -20,12 +22,11 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function PreviewLetter({currentStep}) {
+export default function PreviewLetter({state, setState}) {
 
     const classes = useStyles();
 
-    const render = () => {
-        if (currentStep !== LetterBuilderSteps.PREVIEW_LETTER) {
+        if (state.currentStep !== LetterBuilderSteps.PREVIEW_LETTER) {
             return null
         }
 
@@ -43,10 +44,9 @@ export default function PreviewLetter({currentStep}) {
                                multiline fullWidth/>
                 </FormGroup>
             </FormControl>
+            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
         </React.Fragment>)
-    }
-
-    return render();
 }
 
 PreviewLetter.propTypes = {

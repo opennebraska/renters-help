@@ -8,6 +8,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import {nextStep, previousStep} from "../StepFunctions";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -22,10 +24,10 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function AffordRent({currentStep}) {
+export default function AffordRent({state, setState}) {
 
     const classes = useStyles();
-    const [state, setState] = React.useState({
+    const [form, setForm] = React.useState({
         yes: false,
         no: false,
         lostSubstantialIncome: false,
@@ -37,12 +39,12 @@ export default function AffordRent({currentStep}) {
     })
 
     const handleChange = (event) => {
-        setState({...state, [event.target.name]: event.target.checked})
+        setForm({...form, [event.target.name]: event.target.checked})
     }
 
-    const {yes, no, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none} = state;
+    const {yes, no, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none} = form;
     const render = () => {
-        if (currentStep !== QualificationSteps.AFFORD_RENT) {
+        if (state.currentStep !== QualificationSteps.AFFORD_RENT) {
             return null
         }
 
@@ -97,6 +99,10 @@ export default function AffordRent({currentStep}) {
                 </FormGroup>
                 {no && rentReasons}
             </FormControl>
+            <div>
+                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+            </div>
         </React.Fragment>)
     }
 

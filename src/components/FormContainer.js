@@ -34,28 +34,25 @@ export default function FormContainer() {
 
                         {formNumber === 1 &&
                         <form onSubmit={() => alert('Submited')}>
-                            <Start currentStep={currentStep}/>
-                            <IncomeQualifications currentStep={currentStep}/>
-                            <GovernmentHelp currentStep={currentStep}/>
-                            <AffordRent currentStep={currentStep}/>
-                            <UnsafeLivingConditions currentStep={currentStep}/>
-                            <AttemptingToPay currentStep={currentStep}/>
-                            <Qualified currentStep={currentStep}/>
+                            <Start state={state} setState={setState}/>
+                            <IncomeQualifications state={state} setState={setState}/>
+                            <GovernmentHelp state={state} setState={setState}/>
+                            <AffordRent state={state} setState={setState}/>
+                            <UnsafeLivingConditions state={state} setState={setState}/>
+                            <AttemptingToPay state={state} setState={setState}/>
+                            <Qualified state={state} setState={setState}/>
                         </form>
                         }
 
                         {formNumber === 2 &&
                         <form onSubmit={() => alert('Submited')}>
-                            <PersonalInformation currentStep={currentStep}/>
-                            <LandlordInfo currentStep={currentStep}/>
-                            <PreviewLetter currentStep={currentStep}/>
-                            <Signature currentStep={currentStep}/>
-                            <DownloadLetter currentStep={currentStep}/>
+                            <PersonalInformation state={state} setState={setState}/>
+                            <LandlordInfo state={state} setState={setState}/>
+                            <PreviewLetter state={state} setState={setState}/>
+                            <Signature state={state} setState={setState}/>
+                            <DownloadLetter state={state} setState={setState}/>
                         </form>
                         }
-
-                        <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                        <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
                     </Paper>
                 </Grid>
             </Grid>

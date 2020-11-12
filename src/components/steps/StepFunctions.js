@@ -9,6 +9,7 @@ export const nextStep = (state, setState, validate = () => true) => {
         } else {
             currentStep = state.currentStep + 1;
         }
+        console.log(`${currentStep}, ${formNumber}`)
         setState({currentStep, formNumber});
     }
 }

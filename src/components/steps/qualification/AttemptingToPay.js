@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import {nextStep, previousStep} from "../StepFunctions";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,10 +23,10 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function AttemptingToPay({currentStep}) {
+export default function AttemptingToPay({state, setState}) {
 
     const classes = useStyles();
-    const [state, setState] = React.useState({
+    const [form, setForm] = React.useState({
         yes: false,
         no: false,
         lostSubstantialIncome: false,
@@ -36,37 +38,37 @@ export default function AttemptingToPay({currentStep}) {
     })
 
     const handleChange = (event) => {
-        setState({...state, [event.target.name]: event.target.checked})
+        setForm({...form, [event.target.name]: event.target.checked})
     }
 
-    const {yes, no} = state;
-    const render = () => {
-        if (currentStep !== QualificationSteps.ATTEMPTING_TO_PAY) {
-            return null
-        }
-
-        return (<React.Fragment>
-            <Typography variant="h6" className={classes.title}>
-                I am doing my best to pay as much rent as I can, given my circumstances
-            </Typography>
-            <FormControl component="fieldset" className={classes.formControl}>
-                <FormGroup>
-                    <FormControlLabel
-                        control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
-                        label="Yes"
-                    />
-                    <FormControlLabel
-                        control={<Checkbox checked={no} onChange={handleChange}
-                                           name="no"/>}
-                        label="No"
-                    />
-                </FormGroup>
-
-            </FormControl>
-        </React.Fragment>)
+    const {yes, no} = form;
+    if (state.currentStep !== QualificationSteps.ATTEMPTING_TO_PAY) {
+        return null
     }
 
-    return render();
+    return (<React.Fragment>
+        <Typography variant="h6" className={classes.title}>
+            I am doing my best to pay as much rent as I can, given my circumstances
+        </Typography>
+        <FormControl component="fieldset" className={classes.formControl}>
+            <FormGroup>
+                <FormControlLabel
+                    control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
+                    label="Yes"
+                />
+                <FormControlLabel
+                    control={<Checkbox checked={no} onChange={handleChange}
+                                       name="no"/>}
+                    label="No"
+                />
+            </FormGroup>
+
+        </FormControl>
+        <div>
+            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+        </div>
+    </React.Fragment>)
 }
 
 AttemptingToPay.propTypes = {
