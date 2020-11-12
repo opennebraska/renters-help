@@ -14,6 +14,8 @@ import LandlordInfo from "./steps/letter-builder/LandlordInfo";
 import PreviewLetter from "./steps/letter-builder/PreviewLetter";
 import Signature from "./steps/letter-builder/Signature";
 import DownloadLetter from "./steps/letter-builder/DownloadLetter";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 export default class FormContainer extends Component {
     constructor(props) {
@@ -28,33 +30,39 @@ export default class FormContainer extends Component {
         const {currentStep, formNumber} = this.state;
         return (
             <React.Fragment>
-                <h1>Renters Help form</h1>
-                <StepCounter formNumber={formNumber} currentStep={currentStep}/>
+                <Grid container dirction='column' alignItems='center' justify='center'>
+                    <Grid item xs={12} md={4}>
+                        <Paper  style={{padding: '15px'}}>
+                            <h1>Renters Help form</h1>
+                            <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
-                {formNumber === 1 &&
-                <form onSubmit={() => alert('Submited')}>
-                    <Start currentStep={currentStep}/>
-                    <IncomeQualifications currentStep={currentStep}/>
-                    <GovernmentHelp currentStep={currentStep}/>
-                    <AffordRent currentStep={currentStep}/>
-                    <UnsafeLivingConditions currentStep={currentStep}/>
-                    <AttemptingToPay currentStep={currentStep}/>
-                    <Qualified currentStep={currentStep}/>
-                </form>
-                }
+                            {formNumber === 1 &&
+                            <form onSubmit={() => alert('Submited')}>
+                                <Start currentStep={currentStep}/>
+                                <IncomeQualifications currentStep={currentStep}/>
+                                <GovernmentHelp currentStep={currentStep}/>
+                                <AffordRent currentStep={currentStep}/>
+                                <UnsafeLivingConditions currentStep={currentStep}/>
+                                <AttemptingToPay currentStep={currentStep}/>
+                                <Qualified currentStep={currentStep}/>
+                            </form>
+                            }
 
-                {formNumber === 2 &&
-                <form onSubmit={() => alert('Submited')}>
-                    <PersonalInformation currentStep={currentStep}/>
-                    <LandlordInfo currentStep={currentStep}/>
-                    <PreviewLetter currentStep={currentStep}/>
-                    <Signature currentStep={currentStep}/>
-                    <DownloadLetter currentStep={currentStep} />
-                </form>
-                }
+                            {formNumber === 2 &&
+                            <form onSubmit={() => alert('Submited')}>
+                                <PersonalInformation currentStep={currentStep}/>
+                                <LandlordInfo currentStep={currentStep}/>
+                                <PreviewLetter currentStep={currentStep}/>
+                                <Signature currentStep={currentStep}/>
+                                <DownloadLetter currentStep={currentStep}/>
+                            </form>
+                            }
 
-                <Button variant='contained' onClick={this.previousStep}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={this.nextStep}>Next</Button>
+                            <Button variant='contained' onClick={this.previousStep}>Previous</Button>
+                            <Button variant='contained' color='primary' onClick={this.nextStep}>Next</Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </React.Fragment>
         )
     }
@@ -75,7 +83,7 @@ export default class FormContainer extends Component {
         if (formNumber === 2 && currentStep === LetterBuilderSteps.PERSONAL_INFO) {
             formNumber = 1;
             currentStep = QualificationSteps.FINAL_STEP;
-        } else if(!(formNumber === 1 && currentStep === QualificationSteps.START)) {
+        } else if (!(formNumber === 1 && currentStep === QualificationSteps.START)) {
             currentStep = currentStep - 1;
         }
         this.setState({currentStep, formNumber})

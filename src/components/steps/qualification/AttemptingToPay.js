@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from "@material-ui/core/Grid";
-import { Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -41,35 +39,31 @@ export default function AttemptingToPay({currentStep}) {
         setState({...state, [event.target.name]: event.target.checked})
     }
 
-    const { yes, no } = state;
+    const {yes, no} = state;
     const render = () => {
         if (currentStep !== QualificationSteps.ATTEMPTING_TO_PAY) {
             return null
         }
 
-        return (<Grid container dirction='column' alignItems='center' justify='center'>
-            <Grid item xs={12} md={3}>
-                <Paper>
-                    <Typography variant="h6" className={classes.title}>
-                        I am doing my best to pay as much rent as I can, given my circumstances
-                    </Typography>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={<Checkbox checked={no} onChange={handleChange}
-                                                   name="no"/>}
-                                label="No"
-                            />
-                        </FormGroup>
+        return (<React.Fragment>
+            <Typography variant="h6" className={classes.title}>
+                I am doing my best to pay as much rent as I can, given my circumstances
+            </Typography>
+            <FormControl component="fieldset" className={classes.formControl}>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
+                        label="Yes"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={no} onChange={handleChange}
+                                           name="no"/>}
+                        label="No"
+                    />
+                </FormGroup>
 
-                    </FormControl>
-                </Paper>
-            </Grid>
-        </Grid>)
+            </FormControl>
+        </React.Fragment>)
     }
 
     return render();

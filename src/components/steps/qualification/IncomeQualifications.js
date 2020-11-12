@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from "@material-ui/core/Grid";
-import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -42,9 +40,7 @@ export default function IncomeQualifications({currentStep}) {
         if (currentStep !== QualificationSteps.INCOME_QUALIFICATIONS) {
             return null
         }
-        return (<Grid container dirction='column' alignItems='center' justify='center'>
-            <Grid item xs={12} md={3}>
-                <Paper>
+        return (<React.Fragment>
                     <Typography variant="h6" className={classes.title}>
                         Income Qualification
                     </Typography>
@@ -70,9 +66,7 @@ export default function IncomeQualifications({currentStep}) {
                             />
                         </FormGroup>
                     </FormControl>
-                </Paper>
-            </Grid>
-        </Grid>)
+        </React.Fragment>)
     }
 
     return render();

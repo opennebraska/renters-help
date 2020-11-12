@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from "@material-ui/core/Grid";
-import {FormHelperText, Paper} from "@material-ui/core";
+import {FormHelperText} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -41,7 +40,7 @@ export default function AffordRent({currentStep}) {
         setState({...state, [event.target.name]: event.target.checked})
     }
 
-    const { yes, no, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none } = state;
+    const {yes, no, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none} = state;
     const render = () => {
         if (currentStep !== QualificationSteps.AFFORD_RENT) {
             return null
@@ -50,7 +49,8 @@ export default function AffordRent({currentStep}) {
         const rentReasons = (<FormGroup>
             <Typography variant='body1'>Check all that apply</Typography>
             <FormControlLabel
-                control={<Checkbox checked={lostSubstantialIncome} onChange={handleChange} name="lostSubstantialIncome"/>}
+                control={<Checkbox checked={lostSubstantialIncome} onChange={handleChange}
+                                   name="lostSubstantialIncome"/>}
                 label="My household lost substantial income"
             />
             <FormControlLabel
@@ -68,7 +68,8 @@ export default function AffordRent({currentStep}) {
                 label="My salary was reduced"
             />
             <FormControlLabel
-                control={<Checkbox checked={extraordinaryMedicalCost} onChange={handleChange} name="extraordinaryMedicalCost"/>}
+                control={<Checkbox checked={extraordinaryMedicalCost} onChange={handleChange}
+                                   name="extraordinaryMedicalCost"/>}
                 label="I have extraordinary medical costs that I pay out of pocket that insurance does not cover"
             />
             <FormControlLabel
@@ -78,29 +79,25 @@ export default function AffordRent({currentStep}) {
             <FormHelperText>What are "extraordinary medical costs"? Add link or extra text on click</FormHelperText>
         </FormGroup>)
 
-        return (<Grid container dirction='column' alignItems='center' justify='center'>
-            <Grid item xs={12} md={3}>
-                <Paper>
-                    <Typography variant="h6" className={classes.title}>
-                        Can you afford your rent?
-                    </Typography>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={<Checkbox checked={no} onChange={handleChange}
-                                                   name="no"/>}
-                                label="No"
-                            />
-                        </FormGroup>
-                        {no && rentReasons}
-                    </FormControl>
-                </Paper>
-            </Grid>
-        </Grid>)
+        return (<React.Fragment>
+            <Typography variant="h6" className={classes.title}>
+                Can you afford your rent?
+            </Typography>
+            <FormControl component="fieldset" className={classes.formControl}>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Checkbox checked={yes} onChange={handleChange} name="yes"/>}
+                        label="Yes"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={no} onChange={handleChange}
+                                           name="no"/>}
+                        label="No"
+                    />
+                </FormGroup>
+                {no && rentReasons}
+            </FormControl>
+        </React.Fragment>)
     }
 
     return render();
