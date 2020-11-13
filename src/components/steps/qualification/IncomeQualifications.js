@@ -30,7 +30,6 @@ const validateIncomeQualification = (form, state, setState) => {
     } else {
         const errorStep = state.currentStep * -1;
         setState({...state, currentStep: errorStep})
-        return false;
     }
 }
 
