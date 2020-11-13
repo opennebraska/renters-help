@@ -41,11 +41,20 @@ export default function IncomeQualifications({state, setState}) {
         stimulusCheck: false,
         underIncomeThreshold: false,
         noneOfTheAbove: false,
-
     })
 
     const handleChange = (event) => {
-        setForm({...form, [event.target.name]: event.target.checked})
+        const {name, checked} = event.target;
+        if ('noneOfTheAbove' === name) {
+            setForm({
+                noIncome: false,
+                stimulusCheck: false,
+                underIncomeThreshold: false,
+                noneOfTheAbove: checked,
+            })
+        } else {
+            setForm({...form, noneOfTheAbove: false, [name]: checked})
+        }
     }
 
     const {noIncome, stimulusCheck, underIncomeThreshold, noneOfTheAbove} = form;
@@ -84,8 +93,10 @@ export default function IncomeQualifications({state, setState}) {
                 />
             </FormGroup>
         </FormControl>
-        <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-        <Button variant='contained' color='primary' disabled={noneSelected} onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
+        <Button variant='contained' style={{marginRight: '20px'}}
+                onClick={() => previousStep(state, setState)}>Previous</Button>
+        <Button variant='contained' color='primary' disabled={noneSelected}
+                onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
     </React.Fragment>)
 }
 

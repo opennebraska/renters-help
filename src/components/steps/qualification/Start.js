@@ -67,7 +67,7 @@ export default function Start({state, setState}) {
                     </ListItem>
                 </List>
             </div>
-            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
             <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
         </React.Fragment>)
 }
