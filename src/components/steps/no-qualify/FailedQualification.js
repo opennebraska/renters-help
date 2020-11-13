@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import {makeStyles} from "@material-ui/styles";
-import {ErrorSteps} from "../StepNames";
 import {Button} from "@material-ui/core";
 import {nextStep, previousStep} from "../StepFunctions";
 
@@ -21,10 +20,10 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function FailedIncomeQualification({state, setState}) {
+export default function FailedQualification({state, setState}) {
 
     const classes = useStyles();
-    if (state.currentStep !== ErrorSteps.FAILED_INCOME_QUALIFICATIONS) {
+    if (state.currentStep >= 0) {
         return null
     }
     return (
@@ -45,11 +44,11 @@ export default function FailedIncomeQualification({state, setState}) {
                     </ListItem>
                 </List>
             </div>
-            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
             <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
         </React.Fragment>)
 }
 
-FailedIncomeQualification.propTypes = {
+FailedQualification.propTypes = {
     state: PropTypes.shape({currentStep: PropTypes.number, formNumber: PropTypes.number})
 }

@@ -18,7 +18,3 @@ export const LetterBuilderSteps = {
     DOWNLOAD_LETTER: 5,
     FINAL_STEP: 5,
 }
-
-export const ErrorSteps = {
-    FAILED_INCOME_QUALIFICATIONS: -1
-}

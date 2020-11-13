@@ -14,7 +14,7 @@ import Signature from "./steps/letter-builder/Signature";
 import DownloadLetter from "./steps/letter-builder/DownloadLetter";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import FailedIncomeQualification from "./steps/no-qualify/FailedIncomeQualification";
+import FailedQualification from "./steps/no-qualify/FailedQualification";
 
 export default function FormContainer() {
     const [state, setState] = useState({
@@ -54,7 +54,7 @@ export default function FormContainer() {
                         }
                         {currentStep < 0 &&
                         <div>
-                            <FailedIncomeQualification state={state} setState={setState}/>
+                            <FailedQualification state={state} setState={setState}/>
                         </div>
                         }
                     </Paper>
