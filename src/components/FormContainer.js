@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Start from "./steps/qualification/Start";
-import {Button} from "@material-ui/core";
 import IncomeQualifications from "./steps/qualification/IncomeQualifications";
 import GovernmentHelp from "./steps/qualification/GovernmentHelp";
 import AffordRent from "./steps/qualification/AffordRent";
@@ -15,7 +14,7 @@ import Signature from "./steps/letter-builder/Signature";
 import DownloadLetter from "./steps/letter-builder/DownloadLetter";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import {nextStep, previousStep} from "./steps/StepFunctions";
+import FailedIncomeQualification from "./steps/no-qualify/FailedIncomeQualification";
 
 export default function FormContainer() {
     const [state, setState] = useState({
@@ -52,6 +51,11 @@ export default function FormContainer() {
                             <Signature state={state} setState={setState}/>
                             <DownloadLetter state={state} setState={setState}/>
                         </form>
+                        }
+                        {currentStep < 0 &&
+                        <div>
+                            <FailedIncomeQualification state={state} setState={setState}/>
+                        </div>
                         }
                     </Paper>
                 </Grid>

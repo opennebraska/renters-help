@@ -16,7 +16,9 @@ export const nextStep = (state, setState, validate = () => true) => {
 
 export const previousStep = (state, setState) => {
     let {currentStep, formNumber} = state;
-    if (formNumber === 2 && currentStep === LetterBuilderSteps.PERSONAL_INFO) {
+    if (currentStep < 0) {
+        currentStep = -1 * currentStep;
+    } else if (formNumber === 2 && currentStep === LetterBuilderSteps.PERSONAL_INFO) {
         formNumber = 1;
         currentStep = QualificationSteps.FINAL_STEP;
     } else if (!(formNumber === 1 && currentStep === QualificationSteps.START)) {

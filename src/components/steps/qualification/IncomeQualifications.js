@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -24,20 +23,35 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+const validateIncomeQualification = (form, state, setState) => {
+    const {noIncome, stimulusCheck, underIncomeThreshold} = form;
+    if (noIncome || stimulusCheck || underIncomeThreshold) {
+        return true
+    } else {
+        const errorStep = state.currentStep * -1;
+        setState({...state, currentStep: errorStep})
+        return false;
+    }
+}
+
 export default function IncomeQualifications({state, setState}) {
 
     const classes = useStyles();
     const [form, setForm] = React.useState({
         noIncome: false,
         stimulusCheck: false,
-        underIncomeThreshold: false
+        underIncomeThreshold: false,
+        noneOfTheAbove: false,
+
     })
 
     const handleChange = (event) => {
         setForm({...form, [event.target.name]: event.target.checked})
     }
 
-    const {noIncome, stimulusCheck, underIncomeThreshold} = form;
+    const {noIncome, stimulusCheck, underIncomeThreshold, noneOfTheAbove} = form;
+    const noneSelected = !(noIncome || stimulusCheck || underIncomeThreshold || noneOfTheAbove);
+
     if (state.currentStep !== QualificationSteps.INCOME_QUALIFICATIONS) {
         return null
     }
@@ -49,7 +63,6 @@ export default function IncomeQualifications({state, setState}) {
             Check all that apply
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">Assign responsibility</FormLabel>
             <FormGroup>
                 <FormControlLabel
                     control={<Checkbox checked={noIncome} onChange={handleChange} name="noIncome"/>}
@@ -65,13 +78,18 @@ export default function IncomeQualifications({state, setState}) {
                                        name="underIncomeThreshold"/>}
                     label="I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return"
                 />
+                <FormControlLabel
+                    control={<Checkbox checked={noneOfTheAbove} onChange={handleChange}
+                                       name="noneOfTheAbove"/>}
+                    label="None of the above"
+                />
             </FormGroup>
         </FormControl>
-        <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-        <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+        <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+        <Button variant='contained' color='primary' disabled={noneSelected} onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
     </React.Fragment>)
 }
 
 IncomeQualifications.propTypes = {
-    currentStep: PropTypes.number,
+    state: PropTypes.shape({currentStep: PropTypes.number, formNumber: PropTypes.number}),
 }

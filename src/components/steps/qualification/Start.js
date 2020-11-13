@@ -10,7 +10,6 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import {Button} from "@material-ui/core";
 import {nextStep, previousStep} from "../StepFunctions";
-import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(() => ({
     root: {
