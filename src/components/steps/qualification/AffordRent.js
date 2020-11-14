@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormHelperText} from "@material-ui/core";
+import {FormHelperText, Link} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -48,6 +48,8 @@ export default function AffordRent({state, setState}) {
         extraordinaryMedicalCost: false,
         none: false
     })
+    const [showMedicalDef, setShowMedicalDef] = React.useState(false)
+
 
     const handleChange = (event) => {
         const {name, checked} = event.target;
@@ -108,7 +110,12 @@ export default function AffordRent({state, setState}) {
             control={<Checkbox checked={none} onChange={handleChange} name="none"/>}
             label="None of the above"
         />
-        <FormHelperText>What are "extraordinary medical costs"? Add link or extra text on click</FormHelperText>
+        <Link onClick={() => {
+            setShowMedicalDef(!showMedicalDef);
+        }} color="inherit" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
+        {showMedicalDef &&
+            <FormHelperText>An “extraordinary” medical expense is any unreimbursed medical expense likely to exceed
+                7.5% of one’s adjusted gross income for the year.</FormHelperText>}
     </FormGroup>)
 
     return (<React.Fragment>
@@ -122,7 +129,7 @@ export default function AffordRent({state, setState}) {
             </RadioGroup>
             {'no' === selected && rentReasons}
         </FormControl>
-        <div>
+        <div style={{marginTop: '20px'}}>
             <Button variant='contained' style={{marginRight: '20px'}}
                     onClick={() => previousStep(state, setState)}>Previous</Button>
             <Button variant='contained' color='primary' disabled={disabled}
