@@ -6,7 +6,7 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import {Button} from "@material-ui/core";
+import {Button, Link} from "@material-ui/core";
 import {nextStep, previousStep} from "../StepFunctions";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const validate = (selected, state, setState) => {
-    if(selected === 'yes') {
+    if (selected === 'yes') {
         return true
     } else {
         const errorStep = state.currentStep * -1;
@@ -37,6 +37,7 @@ export default function GovernmentHelp({state, setState}) {
 
     const classes = useStyles();
     const [selected, setSelected] = React.useState('none')
+    const [showBestEffortsDef, setShowBestEffortsDef] = React.useState(false);
 
     const handleChange = (event) => {
         setSelected(event.target.value)
@@ -56,14 +57,23 @@ export default function GovernmentHelp({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
-                <FormControlLabel value="yes" control={<Radio />} label="yes" />
-                <FormControlLabel value="no" control={<Radio />} label="no" />
+                <FormControlLabel value="yes" control={<Radio/>} label="yes"/>
+                <FormControlLabel value="no" control={<Radio/>} label="no"/>
             </RadioGroup>
-            <FormHelperText>What are "best efforts" and "government help"? Add link or additional text to
-                explain.</FormHelperText>
+            <Link onClick={() => {
+                setShowBestEffortsDef(!showBestEffortsDef)
+            }} color="inherit" style={{textAlign: 'left'}}>What are "best efforts" and "government help"?</Link>
+            {showBestEffortsDef &&
+            <FormHelperText>"Government help" means any governmental rental or housing payment benefits available to the individual
+                or any household member. "Best efforts," is not defined by the Order. You should document whether your any applications were successful.
+            </FormHelperText>}
         </FormControl>
-        <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-        <Button variant='contained' color='primary' disabled={'none' === selected} onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
+        <div style={{marginTop: '20px'}}>
+            <Button variant='contained' style={{marginRight: '20px'}}
+                    onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' disabled={'none' === selected}
+                    onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
+        </div>
     </React.Fragment>)
 }
 
