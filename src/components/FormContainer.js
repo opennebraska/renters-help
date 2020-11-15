@@ -27,7 +27,7 @@ export default function FormContainer() {
         address: '',
         unit: '',
         city: '',
-        state: '',
+        state: 'Nebraska',
         zip: '',
     });
     const [landlordInfo, setLandlordInfo] = React.useState({landlordCompany: '', landlordFullName: ''});
@@ -42,7 +42,7 @@ export default function FormContainer() {
                         <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
                         {formNumber === 1 &&
-                        <form onSubmit={() => alert('Submited')}>
+                        <form>
                             <Start state={state} setState={setState}/>
                             <IncomeQualifications state={state} setState={setState}/>
                             <GovernmentHelp state={state} setState={setState}/>
@@ -54,8 +54,8 @@ export default function FormContainer() {
                         }
 
                         {formNumber === 2 &&
-                        <form onSubmit={() => alert('Submited')}>
-                            <PersonalInformation state={state} setState={setState}/>
+                        <form>
+                            <PersonalInformation state={state} setState={setState} renterInfo={renterInfo} setRenterInfo={setRenterInfo}/>
                             <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
                             <PreviewLetter state={state} setState={setState}/>
                             <Signature state={state} setState={setState}/>

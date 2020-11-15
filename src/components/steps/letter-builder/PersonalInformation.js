@@ -25,31 +25,48 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function PersonalInformation({state, setState}) {
+const validate = (renterInfo, setErrors) => {
+    const {firstName, lastName, address, city, state, zip} = renterInfo;
+    if (firstName && lastName && address && city && state && zip) {
+        return true;
+    } else {
+        setErrors({
+            firstName: firstName === '',
+            lastName: lastName === '',
+            address: address === '',
+            city: city === '',
+            state: state === '',
+            zip: zip === ''
+        });
+    }
+}
+
+export default function PersonalInformation({state, setState, renterInfo, setRenterInfo}) {
 
     const classes = useStyles();
-    const [form, setForm] = React.useState({
-        firstName: '',
-        lastName: '',
-        address: '',
-        unit: '',
-        city: '',
-        state: 'Nebraska',
-        zip: '',
-    })
+
+    const [errors, setErrors] = React.useState({
+        firstName: false,
+        lastName: false,
+        address: false,
+        city: false,
+        state: false,
+        zip: false
+    });
 
     const handleChange = (e) => {
         const {id, value} = e.target;
-        setForm({...form, [id]: value})
+        setRenterInfo({...renterInfo, [id]: value})
     }
 
     const handleStateChange = (e) => {
-        setForm({...form, state: e.target.value})
+        setRenterInfo({...renterInfo, state: e.target.value})
     }
 
     if (state.currentStep !== LetterBuilderSteps.PERSONAL_INFO) {
         return null
     }
+
     return (<React.Fragment>
         <Typography variant="h6" className={classes.title}>
             Enter your information
@@ -59,27 +76,29 @@ export default function PersonalInformation({state, setState}) {
             you qualify to use this self-help tool.
         </Typography>
         <div className={classes.demo}>
-            <TextField id="firstName" label="First Name" value={form.firstName} onChange={handleChange}
+            <TextField id="firstName" label="First Name" value={renterInfo.firstName} onChange={handleChange}
+                       variant="outlined" error={errors.firstName} required/>
+            <TextField id="lastName" label="Last Name" value={renterInfo.lastName} onChange={handleChange}
+                       variant="outlined" error={errors.lastName} required/>
+            <TextField id="address" label="Current Address" value={renterInfo.address} onChange={handleChange}
+                       variant="outlined" error={errors.address} required/>
+            <TextField id="unit" label="Unit (optional)" value={renterInfo.unit} onChange={handleChange}
                        variant="outlined"/>
-            <TextField id="lastName" label="Last Name" value={form.lastName} onChange={handleChange}
-                       variant="outlined"/>
-            <TextField id="address" label="Current Address" value={form.address} onChange={handleChange}
-                       variant="outlined"/>
-            <TextField id="unit" label="Unit (optional)" value={form.unit} onChange={handleChange}
-                       variant="outlined"/>
-            <TextField id="city" label="City" value={form.city} onChange={handleChange} variant="outlined"/>
+            <TextField id="city" label="City" value={renterInfo.city} onChange={handleChange} variant="outlined"
+                       error={errors.city} required/>
             <FormControl variant="outlined">
                 <InputLabel id="state-label">State</InputLabel>
-                <Select labelId="state-select" id="state" value={form.state} onChange={handleStateChange}
-                        autoWidth>
+                <Select labelId="state-select" id="state" value={renterInfo.state} onChange={handleStateChange}
+                        autoWidth error={errors.state} required>
                     {Object.values(States).map((st) => <MenuItem id="state" value={st}>{st}</MenuItem>)}
                 </Select>
             </FormControl>
-            <TextField id="zip" label="Zip" value={form.zip} onChange={handleChange} variant="outlined"/>
+            <TextField id="zip" label="Zip" value={renterInfo.zip} onChange={handleChange} variant="outlined"
+                       error={errors.zip} required/>
         </div>
         <div>
             <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
         </div>
     </React.Fragment>)
 }
