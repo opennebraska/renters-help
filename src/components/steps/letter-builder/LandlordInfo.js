@@ -22,23 +22,30 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function LandlordInfo({state, setState}) {
+const validate = (landlordInfo, setError) => {
+    if(landlordInfo.fullName) {
+        setError(false);
+        return true;
+    } else {
+        setError(true);
+    }
+}
+
+export default function LandlordInfo({state, setState, landlordInfo, setLandlordInfo}) {
 
     const classes = useStyles();
-    const [form, setForm] = React.useState({
-        company: '',
-        fullName: '',
-    })
+
+    const [error, setError] = React.useState(false);
 
     const handleChange = (event) => {
-        setForm({...form, [event.target.id]: event.target.value})
+        setLandlordInfo({...landlordInfo, [event.target.id]: event.target.value})
     }
 
     if (state.currentStep !== QualificationSteps.GOVERNMENT_HELP) {
         return null
     }
 
-    const {company, fullName} = form;
+    const {company, fullName} = landlordInfo;
     return (<React.Fragment>
         <Typography variant="h6" className={classes.title}>
             Enter your landlord's information
@@ -53,13 +60,13 @@ export default function LandlordInfo({state, setState}) {
             <FormGroup>
                 <TextField id="company" label="company" value={company} onChange={handleChange}
                            variant={"outlined"}/>
-                <TextField id="fullName" label="fullName" value={fullName} onChange={handleChange}
+                <TextField id="fullName" label="full name" required error={error} value={fullName} onChange={handleChange}
                            variant={"outlined"}/>
             </FormGroup>
         </FormControl>
         <div>
             <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
         </div>
     </React.Fragment>)
 }

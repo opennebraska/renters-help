@@ -21,6 +21,16 @@ export default function FormContainer() {
         currentStep: 0,
         formNumber: 1,
     });
+    const [renterInfo, setRenterInfo] = React.useState({
+        firstName: '',
+        lastName: '',
+        address: '',
+        unit: '',
+        city: '',
+        state: '',
+        zip: '',
+    });
+    const [landlordInfo, setLandlordInfo] = React.useState({landlordCompany: '', landlordFullName: ''});
 
     const {currentStep, formNumber} = state;
     return (
@@ -46,7 +56,7 @@ export default function FormContainer() {
                         {formNumber === 2 &&
                         <form onSubmit={() => alert('Submited')}>
                             <PersonalInformation state={state} setState={setState}/>
-                            <LandlordInfo state={state} setState={setState}/>
+                            <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
                             <PreviewLetter state={state} setState={setState}/>
                             <Signature state={state} setState={setState}/>
                             <DownloadLetter state={state} setState={setState}/>

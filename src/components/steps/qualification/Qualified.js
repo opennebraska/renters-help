@@ -72,7 +72,7 @@ export default function Qualified({state, setState}) {
             </div>
             <div>
                 <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>I Understand</Button>
             </div>
         </React.Fragment>)
 }
