@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import {KeyboardArrowRightRounded} from "@material-ui/icons";
+import {CheckCircleRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import Button from "@material-ui/core/Button";
@@ -46,7 +46,7 @@ export default function Qualified({state, setState}) {
                 <List>
                     <ListItem>
                         <ListItemIcon>
-                            <KeyboardArrowRightRounded/>
+                            <CheckCircleRounded/>
                         </ListItemIcon>
                         <ListItemText
                             primary="I still am responsible to pay my rent and follow all other rules of my lease. My landlord may charge me fees or interest."
@@ -54,7 +54,7 @@ export default function Qualified({state, setState}) {
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <KeyboardArrowRightRounded/>
+                            <CheckCircleRounded/>
                         </ListItemIcon>
                         <ListItemText
                             primary="After December 31, 2020, I may be required to pay all of the rent due, in full."
@@ -62,7 +62,7 @@ export default function Qualified({state, setState}) {
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <KeyboardArrowRightRounded/>
+                            <CheckCircleRounded/>
                         </ListItemIcon>
                         <ListItemText
                             primary="I need to tell the truth on this form. If I do not, I may face civil or criminal penalties."
