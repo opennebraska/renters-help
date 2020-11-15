@@ -57,7 +57,7 @@ export default function FormContainer() {
                         <form>
                             <PersonalInformation state={state} setState={setState} renterInfo={renterInfo} setRenterInfo={setRenterInfo}/>
                             <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
-                            <PreviewLetter state={state} setState={setState}/>
+                            <PreviewLetter state={state} setState={setState} renterInfo={renterInfo} landlordInfo={landlordInfo}/>
                             <Signature state={state} setState={setState}/>
                             <DownloadLetter state={state} setState={setState}/>
                         </form>
