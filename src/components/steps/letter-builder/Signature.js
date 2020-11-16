@@ -35,10 +35,8 @@ export default function Signature({state, setState}) {
             </Typography>
             <Typography>Check out https://www.npmjs.com/package/signature_pad </Typography>
             <FlexContainer justifyContent={'center'}>
-                <ButtonGroup>
-                    <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                    <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
-                </ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
             </FlexContainer>
         </React.Fragment>)
 }

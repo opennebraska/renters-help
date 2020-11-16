@@ -108,12 +108,10 @@ export default function UnsafeLivingConditions({state, setState}) {
             </FormGroup>
         </FormControl>
         <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <ButtonGroup>
-                <Button variant='contained' style={{marginRight: '20px'}}
-                        onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' disabled={disabled}
-                        onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
-            </ButtonGroup>
+            <Button variant='contained' style={{marginRight: '20px'}}
+                    onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' disabled={disabled}
+                    onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
         </FlexContainer>
     </React.Fragment>)
 }

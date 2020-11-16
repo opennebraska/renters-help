@@ -67,10 +67,8 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
             </FormGroup>
         </FormControl>
         <FlexContainer justifyContent={'center'}>
-            <ButtonGroup>
-                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
-            </ButtonGroup>
+            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
         </FlexContainer>
     </React.Fragment>)
 }

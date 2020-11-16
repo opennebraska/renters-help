@@ -70,12 +70,10 @@ export default function GovernmentHelp({state, setState}) {
             </FormHelperText>}
         </FormControl>
         <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <ButtonGroup>
-                <Button variant='contained' style={{marginRight: '20px'}}
-                        onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' disabled={'none' === selected}
-                        onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
-            </ButtonGroup>
+            <Button variant='contained' style={{marginRight: '20px'}}
+                    onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' disabled={'none' === selected}
+                    onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
         </FlexContainer>
     </React.Fragment>)
 }

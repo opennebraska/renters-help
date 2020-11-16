@@ -49,10 +49,8 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
                 </FormGroup>
             </FormControl>
             <FlexContainer justifyContent={'center'}>
-                <ButtonGroup>
-                    <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                    <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
-                </ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
             </FlexContainer>
         </React.Fragment>)
 }

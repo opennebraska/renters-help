@@ -101,10 +101,8 @@ export default function PersonalInformation({state, setState, renterInfo, setRen
                        error={errors.zip} required/>
         </FlexContainer>
         <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <ButtonGroup>
-                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
-            </ButtonGroup>
+            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
         </FlexContainer>
     </React.Fragment>)
 }

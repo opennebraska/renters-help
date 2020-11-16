@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {LetterBuilderSteps} from "../StepNames";
 import {previousStep} from "../StepFunctions";
+import FlexContainer from "../../FlexContainer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,9 +31,9 @@ export default function DownloadLetter({state, setState}) {
         </Typography>
         <Button variant="contained" color="primary">Download complete form</Button>
         <Typography>Check out https://www.npmjs.com/package/pdfkit </Typography>
-        <div>
+        <FlexContainer justifyContent={'center'}>
             <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-        </div>
+        </FlexContainer>
     </React.Fragment>)
 }
 
