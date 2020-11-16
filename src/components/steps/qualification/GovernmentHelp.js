@@ -6,10 +6,11 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import {Button, Link} from "@material-ui/core";
+import {Button, Link, ButtonGroup} from "@material-ui/core";
 import {nextStep, previousStep} from "../StepFunctions";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
+import FlexContainer from "../../FlexContainer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -19,9 +20,9 @@ const useStyles = makeStyles(() => ({
     demo: {
         backgroundColor: 'white',
     },
-    title: {
-        margin: '4 0 2'
-    },
+    link: {
+        cursor: 'pointer'
+    }
 }));
 
 const validate = (selected, state, setState) => {
@@ -60,7 +61,7 @@ export default function GovernmentHelp({state, setState}) {
                 <FormControlLabel value="yes" control={<Radio/>} label="yes"/>
                 <FormControlLabel value="no" control={<Radio/>} label="no"/>
             </RadioGroup>
-            <Link onClick={() => {
+            <Link className={classes.link} onClick={() => {
                 setShowBestEffortsDef(!showBestEffortsDef)
             }} color="inherit" style={{textAlign: 'left'}}>What are "best efforts" and "government help"?</Link>
             {showBestEffortsDef &&
@@ -68,12 +69,14 @@ export default function GovernmentHelp({state, setState}) {
                 or any household member. "Best efforts," is not defined by the Order. You should document whether your any applications were successful.
             </FormHelperText>}
         </FormControl>
-        <div style={{marginTop: '20px'}}>
-            <Button variant='contained' style={{marginRight: '20px'}}
-                    onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={'none' === selected}
-                    onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
-        </div>
+        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+            <ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}}
+                        onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' disabled={'none' === selected}
+                        onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 

@@ -7,8 +7,9 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import {Button} from "@material-ui/core";
+import {Button, ButtonGroup} from "@material-ui/core";
 import {nextStep, previousStep} from "../StepFunctions";
+import FlexContainer from "../../FlexContainer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -17,9 +18,6 @@ const useStyles = makeStyles(() => ({
     },
     demo: {
         backgroundColor: 'white',
-    },
-    title: {
-        margin: '4 0 2'
     },
 }));
 
@@ -93,10 +91,14 @@ export default function IncomeQualifications({state, setState}) {
                 />
             </FormGroup>
         </FormControl>
-        <Button variant='contained' style={{marginRight: '20px'}}
-                onClick={() => previousStep(state, setState)}>Previous</Button>
-        <Button variant='contained' color='primary' disabled={noneSelected}
-                onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
+        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+            <ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}}
+                        onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' disabled={noneSelected}
+                        onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormHelperText, Link} from "@material-ui/core";
+import {ButtonGroup, FormHelperText, Link} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -12,6 +12,7 @@ import {nextStep, previousStep} from "../StepFunctions";
 import Button from "@material-ui/core/Button";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
+import FlexContainer from "../../FlexContainer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,9 +22,9 @@ const useStyles = makeStyles(() => ({
     demo: {
         backgroundColor: 'white',
     },
-    title: {
-        margin: '4 0 2'
-    },
+    link: {
+        cursor: 'pointer'
+    }
 }));
 
 const validate = (form, state, setState) => {
@@ -110,7 +111,7 @@ export default function AffordRent({state, setState}) {
             control={<Checkbox checked={none} onChange={handleChange} name="none"/>}
             label="None of the above"
         />
-        <Link onClick={() => {
+        <Link className={classes.link} onClick={() => {
             setShowMedicalDef(!showMedicalDef);
         }} color="inherit" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
         {showMedicalDef &&
@@ -129,12 +130,14 @@ export default function AffordRent({state, setState}) {
             </RadioGroup>
             {'no' === selected && rentReasons}
         </FormControl>
-        <div style={{marginTop: '20px'}}>
-            <Button variant='contained' style={{marginRight: '20px'}}
-                    onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={disabled}
-                    onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
-        </div>
+        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+            <ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}}
+                        onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' disabled={disabled}
+                        onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 

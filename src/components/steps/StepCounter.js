@@ -7,5 +7,5 @@ export default function StepCounter({formNumber, currentStep}) {
     }
 
     const identifier = formNumber === 1? 'Qualification': 'Step';
-    return <p>{identifier} {currentStep} of 5</p>
+    return <p style={{textAlign: 'center'}}>{identifier} {currentStep} of 5</p>
 }

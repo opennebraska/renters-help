@@ -9,6 +9,8 @@ import Button from "@material-ui/core/Button";
 import {nextStep, previousStep} from "../StepFunctions";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
+import FlexContainer from "../../FlexContainer";
+import {ButtonGroup} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -17,9 +19,6 @@ const useStyles = makeStyles(() => ({
     },
     demo: {
         backgroundColor: 'white',
-    },
-    title: {
-        margin: '4 0 2'
     },
 }));
 
@@ -55,10 +54,12 @@ export default function AttemptingToPay({state, setState}) {
             </RadioGroup>
 
         </FormControl>
-        <div>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={'none' === selected} onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
-        </div>
+        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+            <ButtonGroup>
+                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' disabled={'none' === selected} onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 

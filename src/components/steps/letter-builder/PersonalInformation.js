@@ -11,6 +11,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import {nextStep, previousStep} from "../StepFunctions";
+import FlexContainer from "../../FlexContainer";
+import {ButtonGroup} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -20,9 +22,10 @@ const useStyles = makeStyles(() => ({
     demo: {
         backgroundColor: 'white',
     },
-    title: {
-        margin: '4 0 2'
-    },
+    personalInformation: {
+        marginBottom: '1em',
+        marginRight: '1em'
+    }
 }));
 
 const validate = (renterInfo, setErrors) => {
@@ -75,31 +78,34 @@ export default function PersonalInformation({state, setState, renterInfo, setRen
             We need this information to complete a cover letter to your landlord as well as to ensure that
             you qualify to use this self-help tool.
         </Typography>
-        <div className={classes.demo}>
-            <TextField id="firstName" label="First Name" value={renterInfo.firstName} onChange={handleChange}
+        <FlexContainer justifyContent={'center'}>
+            <TextField className={classes.personalInformation} id="firstName" label="First Name" value={renterInfo.firstName} onChange={handleChange}
                        variant="outlined" error={errors.firstName} required/>
-            <TextField id="lastName" label="Last Name" value={renterInfo.lastName} onChange={handleChange}
+            <TextField className={classes.personalInformation} id="lastName" label="Last Name" value={renterInfo.lastName} onChange={handleChange}
                        variant="outlined" error={errors.lastName} required/>
-            <TextField id="address" label="Current Address" value={renterInfo.address} onChange={handleChange}
+        </FlexContainer>
+        <FlexContainer justifyContent={'center'}>
+            <TextField className={classes.personalInformation} id="address" label="Current Address" value={renterInfo.address} onChange={handleChange}
                        variant="outlined" error={errors.address} required/>
-            <TextField id="unit" label="Unit (optional)" value={renterInfo.unit} onChange={handleChange}
+            <TextField className={classes.personalInformation} id="unit" label="Unit (optional)" value={renterInfo.unit} onChange={handleChange}
                        variant="outlined"/>
-            <TextField id="city" label="City" value={renterInfo.city} onChange={handleChange} variant="outlined"
+        </FlexContainer>
+        <FlexContainer justifyContent={'center'}>
+            <TextField className={classes.personalInformation} id="city" label="City" value={renterInfo.city} onChange={handleChange} variant="outlined"
                        error={errors.city} required/>
-            <FormControl variant="outlined">
-                <InputLabel id="state-label">State</InputLabel>
-                <Select labelId="state-select" id="state" value={renterInfo.state} onChange={handleStateChange}
-                        autoWidth error={errors.state} required>
-                    {Object.values(States).map((st) => <MenuItem id="state" value={st}>{st}</MenuItem>)}
-                </Select>
-            </FormControl>
-            <TextField id="zip" label="Zip" value={renterInfo.zip} onChange={handleChange} variant="outlined"
+            <Select variant={'outlined'} className={classes.personalInformation} labelId="state-select" id="state" value={renterInfo.state} onChange={handleStateChange}
+                    autoWidth error={errors.state} required>
+                {Object.values(States).map((st) => <MenuItem id="state" value={st}>{st}</MenuItem>)}
+            </Select>
+            <TextField className={classes.personalInformation} id="zip" label="Zip" value={renterInfo.zip} onChange={handleChange} variant="outlined"
                        error={errors.zip} required/>
-        </div>
-        <div>
-            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
-        </div>
+        </FlexContainer>
+        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+            <ButtonGroup>
+                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 

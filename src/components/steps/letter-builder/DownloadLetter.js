@@ -14,9 +14,6 @@ const useStyles = makeStyles(() => ({
     demo: {
         backgroundColor: 'white',
     },
-    title: {
-        margin: '4 0 2'
-    },
 }));
 
 export default function DownloadLetter({state, setState}) {

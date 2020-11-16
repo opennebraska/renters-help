@@ -38,7 +38,7 @@ export default function FormContainer() {
             <Grid container dirction='column' alignItems='center' justify='center'>
                 <Grid item xs={12} md={4}>
                     <Paper style={{padding: '15px'}}>
-                        <h1>Renters Help form</h1>
+                        <h1 style={{textAlign:'center'}}>Renters Help Form</h1>
                         <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
                         {formNumber === 1 &&

@@ -9,6 +9,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {nextStep, previousStep} from "../StepFunctions";
 import {getLetter} from "./letterTemplate";
+import {ButtonGroup} from "@material-ui/core";
+import FlexContainer from "../../FlexContainer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -18,9 +20,9 @@ const useStyles = makeStyles(() => ({
     demo: {
         backgroundColor: 'white',
     },
-    title: {
-        margin: '4 0 2'
-    },
+    formControl: {
+        marginBottom: '1em'
+    }
 }));
 
 
@@ -46,8 +48,12 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
                                multiline rowsMax={20} fullWidth/>
                 </FormGroup>
             </FormControl>
-            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+            <FlexContainer justifyContent={'center'}>
+                <ButtonGroup>
+                    <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                    <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
+                </ButtonGroup>
+            </FlexContainer>
         </React.Fragment>)
 }
 

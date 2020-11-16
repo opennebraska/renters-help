@@ -10,6 +10,8 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import Button from "@material-ui/core/Button";
 import {nextStep, previousStep} from "../StepFunctions";
+import FlexContainer from "../../FlexContainer";
+import {ButtonGroup} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -18,9 +20,6 @@ const useStyles = makeStyles(() => ({
     },
     demo: {
         backgroundColor: 'white',
-    },
-    title: {
-        margin: '4 0 2'
     },
 }));
 
@@ -70,10 +69,12 @@ export default function Qualified({state, setState}) {
                     </ListItem>
                 </List>
             </div>
-            <div>
-                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>I Understand</Button>
-            </div>
+            <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
+                <ButtonGroup>
+                    <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                    <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>I Understand</Button>
+                </ButtonGroup>
+            </FlexContainer>
         </React.Fragment>)
 }
 

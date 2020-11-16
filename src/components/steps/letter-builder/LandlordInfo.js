@@ -8,18 +8,20 @@ import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {nextStep, previousStep} from "../StepFunctions";
+import FlexContainer from "../../FlexContainer";
+import {ButtonGroup} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
         maxWidth: 752,
     },
-    demo: {
-        backgroundColor: 'white',
+    formControl: {
+        marginBottom: '1em'
     },
-    title: {
-        margin: '4 0 2'
-    },
+    companyInformation: {
+        marginBottom: '1em'
+    }
 }));
 
 const validate = (landlordInfo, setError) => {
@@ -58,16 +60,18 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>
-                <TextField id="company" label="company" value={company} onChange={handleChange}
+                <TextField className={classes.companyInformation} id="company" label="company" value={company} onChange={handleChange}
                            variant={"outlined"}/>
                 <TextField id="fullName" label="full name" required error={error} value={fullName} onChange={handleChange}
                            variant={"outlined"}/>
             </FormGroup>
         </FormControl>
-        <div>
-            <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
-        </div>
+        <FlexContainer justifyContent={'center'}>
+            <ButtonGroup>
+                <Button variant='contained' onClick={() => previousStep(state, setState)}>Previous</Button>
+                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
+            </ButtonGroup>
+        </FlexContainer>
     </React.Fragment>)
 }
 
