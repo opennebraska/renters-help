@@ -6,10 +6,7 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import {nextStep, previousStep} from "../StepFunctions";
-import FlexContainer from "../../FlexContainer";
-import {ButtonGroup} from "@material-ui/core";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -66,10 +63,7 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
                            variant={"outlined"}/>
             </FormGroup>
         </FormControl>
-        <FlexContainer justifyContent={'center'}>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(landlordInfo, setError))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} validate={() => validate(landlordInfo, setError)}/>
     </React.Fragment>)
 }
 

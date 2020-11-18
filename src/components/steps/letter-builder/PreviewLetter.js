@@ -6,11 +6,8 @@ import {LetterBuilderSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import {nextStep, previousStep} from "../StepFunctions";
 import {getLetter} from "./letterTemplate";
-import {ButtonGroup} from "@material-ui/core";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -48,10 +45,7 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
                                multiline rowsMax={20} fullWidth/>
                 </FormGroup>
             </FormControl>
-            <FlexContainer justifyContent={'center'}>
-                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
-            </FlexContainer>
+            <StepButtons state={state} setState={setState} showNext={false}/>
         </React.Fragment>)
 }
 

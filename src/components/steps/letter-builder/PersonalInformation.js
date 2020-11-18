@@ -7,12 +7,8 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import {States} from "../states";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Button from "@material-ui/core/Button";
-import {nextStep, previousStep} from "../StepFunctions";
 import FlexContainer from "../../FlexContainer";
-import {ButtonGroup} from "@material-ui/core";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -100,10 +96,7 @@ export default function PersonalInformation({state, setState, renterInfo, setRen
             <TextField className={classes.personalInformation} id="zip" label="Zip" value={renterInfo.zip} onChange={handleChange} variant="outlined"
                        error={errors.zip} required/>
         </FlexContainer>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState, () => validate(renterInfo, setErrors))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} validate={() => validate(renterInfo, setErrors)}/>
     </React.Fragment>)
 }
 
