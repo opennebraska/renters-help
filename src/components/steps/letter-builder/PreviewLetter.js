@@ -4,10 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {LetterBuilderSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
-import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import {previousStep} from "../StepFunctions";
 import {getLetter} from "./letterTemplate";
-import StepButtons from "../StepButtons";
+import FlexContainer from "../../FlexContainer";
+import {PDFViewer, PDFDownloadLink} from "@react-pdf/renderer";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -39,13 +40,16 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
                 We created a form with all your information, please check and make sure it looks correct.
             </Typography>
             <FormControl component="fieldset" className={classes.formControl} fullWidth>
-                <FormGroup>
-                    <TextField id="letterPreview" label="" variant={"outlined"}
-                               value={getLetter(renterInfo, landlordInfo)}
-                               multiline rowsMax={20} fullWidth/>
-                </FormGroup>
+                <PDFViewer height={400} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
+                    {getLetter(renterInfo, landlordInfo)}
+                </PDFViewer>
             </FormControl>
-            <StepButtons state={state} setState={setState} showNext={false}/>
+            <FlexContainer justifyContent={'center'}>
+                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
+                <PDFDownloadLink document={getLetter(renterInfo, landlordInfo)} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
+                    Download
+                </PDFDownloadLink>
+            </FlexContainer>
         </React.Fragment>)
 }
 
