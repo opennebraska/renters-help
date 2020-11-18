@@ -4,9 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import {makeStyles} from "@material-ui/styles";
-import {Button} from "@material-ui/core";
-import {nextStep, previousStep} from "../StepFunctions";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -42,10 +40,7 @@ export default function FailedQualification({state, setState}) {
                     </ListItem>
                 </List>
             </div>
-          <FlexContainer justifyContent={'center'}>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
-          </FlexContainer>
+            <StepButtons state={state} setState={setState}/>
         </React.Fragment>)
 }
 

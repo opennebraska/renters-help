@@ -6,11 +6,10 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import {Button, Link, ButtonGroup} from "@material-ui/core";
-import {nextStep, previousStep} from "../StepFunctions";
+import {Link} from "@material-ui/core";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -69,12 +68,7 @@ export default function GovernmentHelp({state, setState}) {
                 or any household member. "Best efforts," is not defined by the Order. You should document whether your any applications were successful.
             </FormHelperText>}
         </FormControl>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}}
-                    onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={'none' === selected}
-                    onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} validate={() => validate(selected, state, setState)} disableNext={'none' === selected}/>
     </React.Fragment>)
 }
 
