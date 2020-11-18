@@ -41,7 +41,7 @@ export default function AttemptingToPay({state, setState}) {
     }
 
     return (<React.Fragment>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant='h4' component='h1' className='title'>
             I am doing my best to pay as much rent as I can, given my circumstances
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>

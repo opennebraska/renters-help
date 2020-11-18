@@ -64,7 +64,7 @@ export default function UnsafeLivingConditions({state, setState}) {
         return null
     }
     return (<React.Fragment>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant='h4' component='h1' className='title'>
             Would an eviction result in a health risk to you by placing you in unsafe living conditions?
         </Typography>
         <Typography variant='body1'>

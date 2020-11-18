@@ -28,7 +28,7 @@ export default function Start({state, setState}) {
     }
     return (
         <React.Fragment>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant='h4' className='title'>
                 How to stay in your home
             </Typography>
             <Typography variant='body1'>

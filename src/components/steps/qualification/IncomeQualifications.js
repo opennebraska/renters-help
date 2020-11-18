@@ -60,7 +60,7 @@ export default function IncomeQualifications({state, setState}) {
         return null
     }
     return (<React.Fragment>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant='h4' component='h1' className='title'>
             Income Qualification
         </Typography>
         <Typography variant='body1'>

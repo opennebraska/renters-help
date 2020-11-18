@@ -24,7 +24,7 @@ export default function FailedQualification({state, setState}) {
     }
     return (
         <React.Fragment>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant='h4' component='h1' className='title'>
                 Sorry, it looks like you don't qualify
             </Typography>
             <Typography variant='body1'>

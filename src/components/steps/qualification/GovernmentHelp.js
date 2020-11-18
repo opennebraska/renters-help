@@ -47,7 +47,7 @@ export default function GovernmentHelp({state, setState}) {
         return null
     }
     return (<React.Fragment>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant='h4' component='h1' className='title'>
             Did you do your best to get government help to pay the rent?
         </Typography>
         <Typography variant='body1'>

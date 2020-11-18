@@ -51,7 +51,6 @@ export default function FormContainer() {
           <Container maxWidth={'md'}>
             <Paper elevation={3}>
               <Box display={'flex'} flexDirection={'column'} p={1} m={3}>
-                <h1 style={{textAlign: 'center'}}>Renters Help Form</h1>
                 <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
                 {formNumber === 1 &&

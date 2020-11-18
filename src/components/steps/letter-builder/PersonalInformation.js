@@ -60,7 +60,7 @@ export default function PersonalInformation({state, setState, renterInfo, setRen
 
   return (
       <>
-        <Typography variant="h6">
+        <Typography variant='h4' component='h1' className='title'>
           Enter your information
         </Typography>
         <Typography variant='body1'>

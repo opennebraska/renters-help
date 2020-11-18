@@ -118,7 +118,7 @@ export default function AffordRent({state, setState}) {
     </FormGroup>)
 
     return (<React.Fragment>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant='h4' component='h1' className='title'>
             Can you afford your rent?
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>

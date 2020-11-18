@@ -28,8 +28,8 @@ export default function Qualified({state, setState}) {
             return null
         }
         return (<React.Fragment>
-            <Typography variant="h6" className={classes.title}>
-                Great, you qualify! Read the following information carefully
+            <Typography variant='h4' component='h1' className='title'>
+                Great, you qualify! Read the following information carefully.
             </Typography>
             <Typography variant='body1'>
                 When you sign the Declaration form, you are agreeing that you understand the following sentences and

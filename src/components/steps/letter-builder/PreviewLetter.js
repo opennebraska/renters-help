@@ -18,7 +18,7 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
   const letter = getLetter(renterInfo, landlordInfo);
   return (
       <>
-        <Typography variant="h6">
+        <Typography variant='h4' component='h1' className='title'>
           Preview your ready to send letter
         </Typography>
         <Typography variant='body1'>

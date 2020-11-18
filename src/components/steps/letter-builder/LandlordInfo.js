@@ -39,7 +39,7 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
   const {company, fullName} = landlordInfo;
   return (
       <>
-        <Typography variant="h6">
+        <Typography variant='h4' component='h1' className='title'>
           Enter your landlord's information
         </Typography>
         <Typography variant='body1'>
