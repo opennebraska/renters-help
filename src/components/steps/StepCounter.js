@@ -1,5 +1,5 @@
 import React from 'react';
-import {QualificationSteps} from "./StepNames";
+import {QualificationSteps, LetterBuilderSteps} from "./StepNames";
 
 export default function StepCounter({formNumber, currentStep}) {
     if(currentStep === QualificationSteps.START || currentStep >= QualificationSteps.QUALIFIED || currentStep < 0) {
@@ -7,5 +7,6 @@ export default function StepCounter({formNumber, currentStep}) {
     }
 
     const identifier = formNumber === 1? 'Qualification': 'Step';
-    return <p style={{textAlign: 'center'}}>{identifier} {currentStep} of 5</p>
+    const finalStep = formNumber === 1? '5': LetterBuilderSteps.FINAL_STEP;
+    return <p style={{textAlign: 'center'}}>{identifier} {currentStep} of {finalStep}</p>
 }

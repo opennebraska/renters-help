@@ -16,5 +16,5 @@ export const LetterBuilderSteps = {
     PREVIEW_LETTER: 3,
     SIGNATURE: 4,
     DOWNLOAD_LETTER: 5,
-    FINAL_STEP: 5,
+    FINAL_STEP: 3,
 }
