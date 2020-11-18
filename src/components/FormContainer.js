@@ -13,63 +13,77 @@ import PreviewLetter from "./steps/letter-builder/PreviewLetter";
 import Signature from "./steps/letter-builder/Signature";
 import DownloadLetter from "./steps/letter-builder/DownloadLetter";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import FailedQualification from "./steps/no-qualify/FailedQualification";
+import Box from "@material-ui/core/Box";
+import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from "@material-ui/core/Typography";
 
 export default function FormContainer() {
-    const [state, setState] = useState({
-        currentStep: 0,
-        formNumber: 1,
-    });
-    const [renterInfo, setRenterInfo] = React.useState({
-        firstName: '',
-        lastName: '',
-        address: '',
-        unit: '',
-        city: '',
-        state: 'Nebraska',
-        zip: '',
-    });
-    const [landlordInfo, setLandlordInfo] = React.useState({landlordCompany: '', landlordFullName: ''});
+  const [state, setState] = useState({
+    currentStep: 0,
+    formNumber: 1,
+  });
+  const [renterInfo, setRenterInfo] = useState({
+    firstName: '',
+    lastName: '',
+    address: '',
+    unit: '',
+    city: '',
+    state: 'Nebraska',
+    zip: '',
+  });
+  const [landlordInfo, setLandlordInfo] = useState({landlordCompany: '', landlordFullName: ''});
 
-    const {currentStep, formNumber} = state;
-    return (
-        <React.Fragment>
-            <Grid container dirction='column' alignItems='center' justify='center'>
-                <Grid item xs={12} md={4}>
-                    <Paper style={{padding: '15px'}}>
-                        <h1 style={{textAlign:'center'}}>Renters Help Form</h1>
-                        <StepCounter formNumber={formNumber} currentStep={currentStep}/>
+  const {currentStep, formNumber} = state;
+  return (
+      <>
+        <AppBar position="fixed" style={{backgroundColor: '#DC2A44'}}>
+          <Toolbar>
+            <img src="/renters-help/neb-renter-help-favicon-red.png" alt="logo" style={{maxWidth: 30, marginRight: 10}} width={30} height={30}/>
+            <Typography variant="h6" noWrap>
+              Nebraska Renters Help
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Box mt={10}>
+          <Container maxWidth={'md'}>
+            <Paper elevation={3}>
+              <Box display={'flex'} flexDirection={'column'} p={1} m={3}>
+                <h1 style={{textAlign: 'center'}}>Renters Help Form</h1>
+                <StepCounter formNumber={formNumber} currentStep={currentStep}/>
 
-                        {formNumber === 1 &&
-                        <form>
-                            <Start state={state} setState={setState}/>
-                            <IncomeQualifications state={state} setState={setState}/>
-                            <GovernmentHelp state={state} setState={setState}/>
-                            <AffordRent state={state} setState={setState}/>
-                            <UnsafeLivingConditions state={state} setState={setState}/>
-                            <AttemptingToPay state={state} setState={setState}/>
-                            <Qualified state={state} setState={setState}/>
-                        </form>
-                        }
+                {formNumber === 1 &&
+                <form>
+                  <Start state={state} setState={setState}/>
+                  <IncomeQualifications state={state} setState={setState}/>
+                  <GovernmentHelp state={state} setState={setState}/>
+                  <AffordRent state={state} setState={setState}/>
+                  <UnsafeLivingConditions state={state} setState={setState}/>
+                  <AttemptingToPay state={state} setState={setState}/>
+                  <Qualified state={state} setState={setState}/>
+                </form>
+                }
 
-                        {formNumber === 2 &&
-                        <form>
-                            <PersonalInformation state={state} setState={setState} renterInfo={renterInfo} setRenterInfo={setRenterInfo}/>
-                            <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
-                            <PreviewLetter state={state} setState={setState} renterInfo={renterInfo} landlordInfo={landlordInfo}/>
-                            <Signature state={state} setState={setState}/>
-                            <DownloadLetter state={state} setState={setState}/>
-                        </form>
-                        }
-                        {currentStep < 0 &&
-                        <div>
-                            <FailedQualification state={state} setState={setState}/>
-                        </div>
-                        }
-                    </Paper>
-                </Grid>
-            </Grid>
-        </React.Fragment>
-    )
+                {formNumber === 2 &&
+                <form>
+                  <PersonalInformation state={state} setState={setState} renterInfo={renterInfo} setRenterInfo={setRenterInfo}/>
+                  <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
+                  <PreviewLetter state={state} setState={setState} renterInfo={renterInfo} landlordInfo={landlordInfo}/>
+                  <Signature state={state} setState={setState}/>
+                  <DownloadLetter state={state} setState={setState}/>
+                </form>
+                }
+                {currentStep < 0 &&
+                <div>
+                  <FailedQualification state={state} setState={setState}/>
+                </div>
+                }
+              </Box>
+            </Paper>
+          </Container>
+        </Box>
+      </>
+  )
 }
