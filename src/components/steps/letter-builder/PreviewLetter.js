@@ -31,11 +31,9 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
         </FormControl>
         <FlexContainer justifyContent={'center'} margin={10}>
           <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-          <Button variant='contained' color='primary'>
-            <PDFDownloadLink style={{textDecoration: 'none', color: 'white'}} document={letter} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
-              Download
-            </PDFDownloadLink>
-          </Button>
+          <PDFDownloadLink style={{textDecoration: 'none'}} document={letter} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
+            <Button variant='contained' color='primary'> Download </Button>
+          </PDFDownloadLink>
         </FlexContainer>
       </>
   )

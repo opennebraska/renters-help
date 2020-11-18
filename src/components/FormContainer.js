@@ -41,7 +41,7 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
   const {currentStep, formNumber} = state;
   return (
       <ThemeProvider theme={theme}>
-        <AppBar position="fixed" style={{backgroundColor: '#DC2A44'}}>
+        <AppBar position="fixed">
           <Toolbar>
             <img src="/renters-help/neb-renter-help-favicon-red.png" alt="logo" style={{maxWidth: 30, marginRight: 10}} width={30} height={30}/>
             <Typography variant="h6" noWrap>
