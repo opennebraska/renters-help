@@ -19,6 +19,8 @@ import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from "@material-ui/core/Typography";
+import {createMuiTheme} from "@material-ui/core";
+import {ThemeProvider} from "@material-ui/styles";
 
 export default function FormContainer() {
   const [state, setState] = useState({
@@ -35,10 +37,10 @@ export default function FormContainer() {
     zip: '',
   });
   const [landlordInfo, setLandlordInfo] = useState({landlordCompany: '', landlordFullName: ''});
-
+const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
   const {currentStep, formNumber} = state;
   return (
-      <>
+      <ThemeProvider theme={theme}>
         <AppBar position="fixed" style={{backgroundColor: '#DC2A44'}}>
           <Toolbar>
             <img src="/renters-help/neb-renter-help-favicon-red.png" alt="logo" style={{maxWidth: 30, marginRight: 10}} width={30} height={30}/>
@@ -83,6 +85,6 @@ export default function FormContainer() {
             </Paper>
           </Container>
         </Box>
-      </>
+      </ThemeProvider>
   )
 }
