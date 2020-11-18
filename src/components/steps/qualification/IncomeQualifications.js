@@ -69,22 +69,22 @@ export default function IncomeQualifications({state, setState}) {
         <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>
                 <FormControlLabel
-                    control={<Checkbox checked={noIncome} onChange={handleChange} name="noIncome"/>}
+                    control={<Checkbox checked={noIncome} onChange={handleChange} name="noIncome" color='primary'/>}
                     label="I did not report any income to the I.R.S. for 2019"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={stimulusCheck} onChange={handleChange}
-                                       name="stimulusCheck"/>}
+                                       name="stimulusCheck" color='primary'/>}
                     label="I got a stimulus check (Economic Impact Payment) in 2020"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={underIncomeThreshold} onChange={handleChange}
-                                       name="underIncomeThreshold"/>}
+                                       name="underIncomeThreshold" color='primary'/>}
                     label="I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={noneOfTheAbove} onChange={handleChange}
-                                       name="noneOfTheAbove"/>}
+                                       name="noneOfTheAbove" color='primary' />}
                     label="None of the above"
                 />
             </FormGroup>

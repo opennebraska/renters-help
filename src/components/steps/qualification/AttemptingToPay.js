@@ -46,8 +46,8 @@ export default function AttemptingToPay({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
-                <FormControlLabel value="yes" control={<Radio/>} label="yes"/>
-                <FormControlLabel value="no" control={<Radio/>} label="no"/>
+                <FormControlLabel value="yes" control={<Radio color='primary'/>} label="yes"/>
+                <FormControlLabel value="no" control={<Radio color='primary'/>} label="no"/>
             </RadioGroup>
 
         </FormControl>

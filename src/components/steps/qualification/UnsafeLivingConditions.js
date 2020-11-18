@@ -74,32 +74,32 @@ export default function UnsafeLivingConditions({state, setState}) {
             <FormGroup>
                 <FormControlLabel
                     control={<Checkbox checked={likelyBecomeHomeless} onChange={handleChange}
-                                       name="likelyBecomeHomeless"/>}
+                                       name="likelyBecomeHomeless" color='primary'/>}
                     label="I am likely to become homeless"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={moveToShelter} onChange={handleChange}
-                                       name="moveToShelter"/>}
+                                       name="moveToShelter" color='primary'/>}
                     label="I will probably need to move into a homeless shelter"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={moveToCloseQuarters} onChange={handleChange}
-                                       name="moveToCloseQuarters"/>}
+                                       name="moveToCloseQuarters" color='primary' />}
                     label="I will probably need to move in with someone else in close quarters"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={noOtherSafeChoices} onChange={handleChange}
-                                       name="noOtherSafeChoices"/>}
+                                       name="noOtherSafeChoices" color='primary' />}
                     label="I do not have any other safe housing choices"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={otherChoicesMoreExpensive} onChange={handleChange}
-                                       name="otherChoicesMoreExpensive"/>}
+                                       name="otherChoicesMoreExpensive" color='primary' />}
                     label="Any other safe housing choices would cost me more money"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={notAtRisk} onChange={handleChange}
-                                       name="notAtRisk"/>}
+                                       name="notAtRisk" color='primary'/>}
                     label="I am not at risk of unsafe housing"
                 />
             </FormGroup>

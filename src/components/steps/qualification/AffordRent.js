@@ -83,30 +83,30 @@ export default function AffordRent({state, setState}) {
         <Typography variant='body1'>Check all that apply</Typography>
         <FormControlLabel
             control={<Checkbox checked={lostSubstantialIncome} onChange={handleChange}
-                               name="lostSubstantialIncome"/>}
+                               name="lostSubstantialIncome" color='primary' />}
             label="My household lost substantial income"
         />
         <FormControlLabel
             control={<Checkbox checked={lostJob} onChange={handleChange}
-                               name="lostJob"/>}
+                               name="lostJob" color='primary' />}
             label="I lost my job"
         />
         <FormControlLabel
-            control={<Checkbox checked={hoursCut} onChange={handleChange} name="hoursCut"/>}
+            control={<Checkbox checked={hoursCut} onChange={handleChange} name="hoursCut" color='primary' />}
             label="My hours were cut"
         />
         <FormControlLabel
             control={<Checkbox checked={salaryReduced} onChange={handleChange}
-                               name="salaryReduced"/>}
+                               name="salaryReduced" color='primary' />}
             label="My salary was reduced"
         />
         <FormControlLabel
             control={<Checkbox checked={extraordinaryMedicalCost} onChange={handleChange}
-                               name="extraordinaryMedicalCost"/>}
+                               name="extraordinaryMedicalCost" color='primary' />}
             label="I have extraordinary medical costs that I pay out of pocket that insurance does not cover"
         />
         <FormControlLabel
-            control={<Checkbox checked={none} onChange={handleChange} name="none"/>}
+            control={<Checkbox checked={none} onChange={handleChange} name="none" color='primary' />}
             label="None of the above"
         />
         <Link className={classes.link} onClick={() => {
@@ -123,8 +123,8 @@ export default function AffordRent({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleSelectedChange}>
-                <FormControlLabel value="yes" control={<Radio/>} label="yes"/>
-                <FormControlLabel value="no" control={<Radio/>} label="no"/>
+                <FormControlLabel value="yes" control={<Radio color='primary'/>} label="yes"/>
+                <FormControlLabel value="no" control={<Radio color='primary'/>} label="no"/>
             </RadioGroup>
             {'no' === selected && rentReasons}
         </FormControl>
