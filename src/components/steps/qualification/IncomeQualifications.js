@@ -7,9 +7,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import {Button, ButtonGroup} from "@material-ui/core";
-import {nextStep, previousStep} from "../StepFunctions";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -91,11 +89,8 @@ export default function IncomeQualifications({state, setState}) {
                 />
             </FormGroup>
         </FormControl>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={noneSelected}
-                    onClick={() => nextStep(state, setState, () => validateIncomeQualification(form, state, setState))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState}
+                     validate={() => validateIncomeQualification(form, state, setState)} disableNext={noneSelected}/>
     </React.Fragment>)
 }
 

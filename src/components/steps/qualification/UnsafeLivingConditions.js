@@ -7,10 +7,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Button from "@material-ui/core/Button";
-import {nextStep, previousStep} from "../StepFunctions";
-import FlexContainer from "../../FlexContainer";
-import {ButtonGroup} from "@material-ui/core";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -107,12 +104,7 @@ export default function UnsafeLivingConditions({state, setState}) {
                 />
             </FormGroup>
         </FormControl>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}}
-                    onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={disabled}
-                    onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} disableNext={disabled} validate={() => validate(form, state, setState)}/>
     </React.Fragment>)
 }
 

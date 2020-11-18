@@ -8,9 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import {CheckCircleRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
-import {Button,ButtonGroup} from "@material-ui/core";
-import {nextStep, previousStep} from "../StepFunctions";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -65,10 +63,7 @@ export default function Start({state, setState}) {
                     </ListItem>
                 </List>
             </div>
-            <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-                <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' color='primary' onClick={() => nextStep(state, setState)}>Next</Button>
-            </FlexContainer>
+            <StepButtons state={state} setState={setState} showPrevious={false}/>
         </React.Fragment>)
 }
 

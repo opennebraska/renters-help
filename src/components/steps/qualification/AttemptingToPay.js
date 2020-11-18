@@ -5,12 +5,9 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Button from "@material-ui/core/Button";
-import {nextStep, previousStep} from "../StepFunctions";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
-import FlexContainer from "../../FlexContainer";
-import {ButtonGroup} from "@material-ui/core";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -23,7 +20,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const validate = (selected, state, setState) => {
-    if(selected === 'yes') {
+    if (selected === 'yes') {
         return true
     } else {
         const errorStep = state.currentStep * -1;
@@ -49,15 +46,13 @@ export default function AttemptingToPay({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
-                <FormControlLabel value="yes" control={<Radio />} label="yes" />
-                <FormControlLabel value="no" control={<Radio />} label="no" />
+                <FormControlLabel value="yes" control={<Radio/>} label="yes"/>
+                <FormControlLabel value="no" control={<Radio/>} label="no"/>
             </RadioGroup>
 
         </FormControl>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={'none' === selected} onClick={() => nextStep(state, setState, () => validate(selected, state, setState))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} validate={() => validate(selected, state, setState)}
+                     disableNext={'none' === selected}/>
     </React.Fragment>)
 }
 

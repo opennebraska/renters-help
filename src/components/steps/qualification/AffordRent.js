@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ButtonGroup, FormHelperText, Link} from "@material-ui/core";
+import {FormHelperText, Link} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
@@ -8,11 +8,9 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import {nextStep, previousStep} from "../StepFunctions";
-import Button from "@material-ui/core/Button";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
-import FlexContainer from "../../FlexContainer";
+import StepButtons from "../StepButtons";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -115,8 +113,8 @@ export default function AffordRent({state, setState}) {
             setShowMedicalDef(!showMedicalDef);
         }} color="inherit" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
         {showMedicalDef &&
-            <FormHelperText>An “extraordinary” medical expense is any unreimbursed medical expense likely to exceed
-                7.5% of one’s adjusted gross income for the year.</FormHelperText>}
+        <FormHelperText>An “extraordinary” medical expense is any unreimbursed medical expense likely to exceed
+            7.5% of one’s adjusted gross income for the year.</FormHelperText>}
     </FormGroup>)
 
     return (<React.Fragment>
@@ -130,12 +128,8 @@ export default function AffordRent({state, setState}) {
             </RadioGroup>
             {'no' === selected && rentReasons}
         </FormControl>
-        <FlexContainer justifyContent={'center'} styles={{marginTop: '2em'}}>
-            <Button variant='contained' style={{marginRight: '20px'}}
-                    onClick={() => previousStep(state, setState)}>Previous</Button>
-            <Button variant='contained' color='primary' disabled={disabled}
-                    onClick={() => nextStep(state, setState, () => validate(form, state, setState))}>Next</Button>
-        </FlexContainer>
+        <StepButtons state={state} setState={setState} validate={() => validate(form, state, setState)}
+                     disableNext={disabled}/>
     </React.Fragment>)
 }
 
