@@ -56,7 +56,7 @@ export const getLetter = (renterInfo, landlordInfo) => {
                     <Text>
                         I am writing you to express my right to not be evicted through December 31, 2020 because I am
                         unable to pay my rent due to the COVID-19 pandemic. I have this right under the Centers for
-                        Disease Control and Prevention's ("CDC") Order effective September 4, 20201. The CDC issued this
+                        Disease Control and Prevention's ("CDC") Order effective September 4, 2020. The CDC issued this
                         Order as an emergency action authorized by Section 361 of the Public Health Act and 42 CFR 70.2
                         to prevent the spread of COVID-19 throughout the United States, including Nebraska.
                     </Text>
