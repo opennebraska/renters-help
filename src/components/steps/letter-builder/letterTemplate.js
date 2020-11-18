@@ -38,6 +38,7 @@ export const getLetter = (renterInfo, landlordInfo) => {
             flexGrow: 1
         }
     });
+    const {fullName, company} = landlordInfo;
     return (
         <Document>
             <Page size="Letter" style={styles.page}>
@@ -47,10 +48,11 @@ export const getLetter = (renterInfo, landlordInfo) => {
                     </Text>
                 </View>
                 <View style={styles.section}>
-                    <Text>{landlordInfo.fullName}</Text>
+                    <Text>{fullName}</Text>
+                    <Text>{company}</Text>
                 </View>
                 <View style={styles.section}>
-                    <Text>Dear {landlordInfo.fullName}:</Text>
+                    <Text>Dear {fullName}:</Text>
                 </View>
                 <View style={styles.section}>
                     <Text>
