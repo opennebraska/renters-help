@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 
 const validate = (form, state, setState) => {
     const {selected, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none} = form;
-    if (selected === 'no' && (lostSubstantialIncome || lostJob || hoursCut || salaryReduced || extraordinaryMedicalCost || !none)) {
+    if (selected === 'No' && (lostSubstantialIncome || lostJob || hoursCut || salaryReduced || extraordinaryMedicalCost || !none)) {
         return true
     } else {
         const errorStep = state.currentStep * -1;
@@ -72,8 +72,8 @@ export default function AffordRent({state, setState}) {
     }
 
     const {selected, lostSubstantialIncome, lostJob, hoursCut, salaryReduced, extraordinaryMedicalCost, none} = form;
-    const disabled = !('yes' === selected ||
-        ('no' === selected && (lostSubstantialIncome || lostJob || hoursCut || salaryReduced || extraordinaryMedicalCost || none)))
+    const disabled = !('Yes' === selected ||
+        ('No' === selected && (lostSubstantialIncome || lostJob || hoursCut || salaryReduced || extraordinaryMedicalCost || none)))
 
     if (state.currentStep !== QualificationSteps.AFFORD_RENT) {
         return null
@@ -111,7 +111,7 @@ export default function AffordRent({state, setState}) {
         />
         <Link className={classes.link} onClick={() => {
             setShowMedicalDef(!showMedicalDef);
-        }} color="inherit" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
+        }} color="primary" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
         {showMedicalDef &&
         <FormHelperText>An “extraordinary” medical expense is any unreimbursed medical expense likely to exceed
             7.5% of one’s adjusted gross income for the year.</FormHelperText>}
@@ -121,12 +121,12 @@ export default function AffordRent({state, setState}) {
         <Typography variant='h4' component='h1' className='title'>
             Can you afford your rent?
         </Typography>
-        <FormControl component="fieldset" className={classes.formControl}>
+        <FormControl component="fieldset">
             <RadioGroup value={selected} onChange={handleSelectedChange}>
-                <FormControlLabel value="yes" control={<Radio color='primary'/>} label="yes"/>
-                <FormControlLabel value="no" control={<Radio color='primary'/>} label="no"/>
+                <FormControlLabel value="Yes" control={<Radio color='primary'/>} label="Yes"/>
+                <FormControlLabel value="No" control={<Radio color='primary'/>} label="No"/>
             </RadioGroup>
-            {'no' === selected && rentReasons}
+            {'No' === selected && rentReasons}
         </FormControl>
         <StepButtons state={state} setState={setState} validate={() => validate(form, state, setState)}
                      disableNext={disabled}/>

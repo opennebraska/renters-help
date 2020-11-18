@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const validate = (selected, state, setState) => {
-    if (selected === 'yes') {
+    if (selected === 'Yes') {
         return true
     } else {
         const errorStep = state.currentStep * -1;
@@ -46,8 +46,8 @@ export default function AttemptingToPay({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
-                <FormControlLabel value="yes" control={<Radio color='primary'/>} label="yes"/>
-                <FormControlLabel value="no" control={<Radio color='primary'/>} label="no"/>
+                <FormControlLabel value="Yes" control={<Radio color='primary'/>} label="Yes"/>
+                <FormControlLabel value="No" control={<Radio color='primary'/>} label="No"/>
             </RadioGroup>
 
         </FormControl>

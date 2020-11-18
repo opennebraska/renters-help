@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const validate = (selected, state, setState) => {
-    if (selected === 'yes') {
+    if (selected === 'Yes') {
         return true
     } else {
         const errorStep = state.currentStep * -1;
@@ -57,15 +57,15 @@ export default function GovernmentHelp({state, setState}) {
         </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
-                <FormControlLabel value="yes" control={<Radio color='primary'/>} label="yes"/>
-                <FormControlLabel value="no" control={<Radio color='primary'/>} label="no"/>
+                <FormControlLabel value="Yes" control={<Radio color='primary'/>} label="Yes"/>
+                <FormControlLabel value="No" control={<Radio color='primary'/>} label="No"/>
             </RadioGroup>
             <Link className={classes.link} onClick={() => {
                 setShowBestEffortsDef(!showBestEffortsDef)
-            }} color="inherit" style={{textAlign: 'left'}}>What are "best efforts" and "government help"?</Link>
+            }} color="primary" style={{textAlign: 'left'}}>What are "best efforts" and "government help"?</Link>
             {showBestEffortsDef &&
             <FormHelperText>"Government help" means any governmental rental or housing payment benefits available to the individual
-                or any household member. "Best efforts," is not defined by the Order. You should document whether your any applications were successful.
+                or any household member. "Best efforts" is not defined by the Order. You should document whether your any applications were successful.
             </FormHelperText>}
         </FormControl>
         <StepButtons state={state} setState={setState} validate={() => validate(selected, state, setState)} disableNext={'none' === selected}/>
