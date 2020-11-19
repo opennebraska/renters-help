@@ -1,7 +1,7 @@
 import {Document, Image, Page, StyleSheet, Text, View} from "@react-pdf/renderer";
 import React from "react";
 
-export const getLetter = (renterInfo, landlordInfo) => {
+export const getLetter = (renterInfo, landlordInfo, imageUrl) => {
   const {firstName, lastName, address, unit, city, state, zip} = renterInfo;
   const personalInfoBlock = `${firstName} ${lastName}
     ${address} ${unit}
@@ -39,6 +39,16 @@ export const getLetter = (renterInfo, landlordInfo) => {
     },
     image: {
       width: '100%'
+    },
+    signature: {
+      marginTop: -420,
+      marginLeft: 55,
+      maxWidth: 30,
+    },
+    date: {
+      marginTop: -15,
+      marginLeft: 370,
+      fontSize: 14,
     }
   });
   const {fullName, company} = landlordInfo;
@@ -93,21 +103,26 @@ export const getLetter = (renterInfo, landlordInfo) => {
           <View style={styles.section}>
             <Text>{personalInfoBlock}</Text>
           </View>
-          <View style={{...styles.section, paddingBottom: 0, marginBottom: 0}}>
-            <Text>_______________________</Text>
-          </View>
           <View style={styles.footnote}>
             <Text>1 Center for Disease Control and Prevention's Order dated September 1, 2020. See: https://www.cdc.gov/coronavirus/2019-ncov/covid-eviction-declaration.html; see also https://www.federalregister.gov/documents/2020/09/04/2020-19654/temporary-halt-in-residential-evictions-to-prevent-the-further-spread-of-covid-19</Text>
           </View>
         </Page>
         <Page size="Letter" style={styles.page}>
           <View style={styles.image}>
-            <Image src="/renters-help/declaration-form-page-1.png" />
+            <Image src="/renters-help/declaration-form-page-1.png"/>
           </View>
         </Page>
         <Page size="Letter" style={styles.page}>
           <View style={styles.image}>
-            <Image src="/renters-help/declaration-form-page-2.png" />
+            <Image src="/renters-help/declaration-form-page-2.png"/>
+          </View>
+          <View style={styles.signature}>
+            <Image src={imageUrl} style={{height: 50, width: 200}}/>
+          </View>
+          <View style={styles.date}>
+            <Text>
+              {new Date().toLocaleDateString()}
+            </Text>
           </View>
         </Page>
       </Document>
