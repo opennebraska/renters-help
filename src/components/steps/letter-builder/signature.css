@@ -3,3 +3,11 @@
     width: 600px;
     height: 150px;
 }
+
+@media only screen and (max-width: 600px) {
+    .signatureCanvas {
+        border: 1px solid black;
+        width: 360px;
+        height: 90px;
+    }
+}

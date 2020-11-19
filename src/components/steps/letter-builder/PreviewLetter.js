@@ -48,7 +48,7 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
         <Dialog open={openSignForm} onClose={handleSignFormClose} maxWidth={'md'} aria-labelledby="Sign Form">
           <DialogTitle>Sign Form</DialogTitle>
           <DialogContent>
-            <SignaturePad ref={signaturePad} canvasProps={{className: "signatureCanvas"}}/>
+            <SignaturePad ref={signaturePad} canvasProps={{className: "signatureCanvas"}} clearOnResize={false}/>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleSignFormClose} variant='contained'>Close</Button>
