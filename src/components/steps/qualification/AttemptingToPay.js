@@ -13,10 +13,7 @@ const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
         maxWidth: 752,
-    },
-    demo: {
-        backgroundColor: 'white',
-    },
+    }
 }));
 
 const validate = (selected, state, setState) => {
