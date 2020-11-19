@@ -13,12 +13,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import SignaturePad from 'react-signature-canvas'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {useTheme} from '@material-ui/core/styles';
 import "./signature.css";
 
 export default function PreviewLetter({state, setState, renterInfo, landlordInfo}) {
   const [openSignForm, setOpenSignForm] = useState(false);
   const [imageUrl, setImageUrl] = useState("/renters-help/transparent.png");
   const signaturePad = useRef({});
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   if (state.currentStep !== LetterBuilderSteps.PREVIEW_LETTER) {
     return null
@@ -45,10 +49,12 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
 
   return (
       <>
-        <Dialog open={openSignForm} onClose={handleSignFormClose} maxWidth={'md'} aria-labelledby="Sign Form">
+        <Dialog open={openSignForm} onClose={handleSignFormClose} maxWidth={'md'} fullScreen={fullScreen} aria-labelledby="Sign Form">
           <DialogTitle>Sign Form</DialogTitle>
           <DialogContent>
-            <SignaturePad ref={signaturePad} canvasProps={{className: "signatureCanvas"}} clearOnResize={false}/>
+            <FlexContainer justifyContent={'center'}>
+              <SignaturePad ref={signaturePad} canvasProps={{className: "signatureCanvas"}} clearOnResize={false}/>
+            </FlexContainer>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleSignFormClose} variant='contained'>Close</Button>
@@ -64,13 +70,15 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
           We created a form with all your information, please check and make sure it looks correct.
         </Typography>
         <FormControl fullWidth>
-          <PDFViewer height={800} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
+          <PDFViewer height={600} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
             {letter}
           </PDFViewer>
         </FormControl>
         <FlexContainer justifyContent={'center'} margin={10}>
           <Button variant='contained' style={{marginRight: '20px'}} onClick={() => previousStep(state, setState)}>Previous</Button>
-          <Button variant='contained' style={{marginRight: '20px'}} onClick={handleSignFormOpen}>Sign Form</Button>
+          <Button variant='contained' onClick={handleSignFormOpen}>Sign Form</Button>
+        </FlexContainer>
+        <FlexContainer justifyContent={'center'} margin={10}>
           <PDFDownloadLink style={{textDecoration: 'none'}} document={letter} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
             <Button variant='contained' color='primary'> Download </Button>
           </PDFDownloadLink>

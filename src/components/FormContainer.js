@@ -10,8 +10,6 @@ import Qualified from "./steps/qualification/Qualified";
 import PersonalInformation from "./steps/letter-builder/PersonalInformation";
 import LandlordInfo from "./steps/letter-builder/LandlordInfo";
 import PreviewLetter from "./steps/letter-builder/PreviewLetter";
-import Signature from "./steps/letter-builder/Signature";
-import DownloadLetter from "./steps/letter-builder/DownloadLetter";
 import Paper from "@material-ui/core/Paper";
 import FailedQualification from "./steps/no-qualify/FailedQualification";
 import Box from "@material-ui/core/Box";
@@ -72,8 +70,6 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
                   <PersonalInformation state={state} setState={setState} renterInfo={renterInfo} setRenterInfo={setRenterInfo}/>
                   <LandlordInfo state={state} setState={setState} landlordInfo={landlordInfo} setLandlordInfo={setLandlordInfo}/>
                   <PreviewLetter state={state} setState={setState} renterInfo={renterInfo} landlordInfo={landlordInfo}/>
-                  <Signature state={state} setState={setState}/>
-                  <DownloadLetter state={state} setState={setState}/>
                 </form>
                 }
                 {currentStep < 0 &&
