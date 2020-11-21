@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Start from "./steps/qualification/Start";
+import Home from "./Home";
 import IncomeQualifications from "./steps/qualification/IncomeQualifications";
 import GovernmentHelp from "./steps/qualification/GovernmentHelp";
 import AffordRent from "./steps/qualification/AffordRent";
@@ -23,7 +24,7 @@ import {ThemeProvider} from "@material-ui/styles";
 export default function FormContainer() {
   const [state, setState] = useState({
     currentStep: 0,
-    formNumber: 1,
+    formNumber: 0,
   });
   const [renterInfo, setRenterInfo] = useState({
     firstName: '',
@@ -47,6 +48,7 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
             </Typography>
           </Toolbar>
         </AppBar>
+        {formNumber === 0 ? <Home state={state} setState={setState}/> :
         <Box mt={10}>
           <Container maxWidth={'md'}>
             <Paper elevation={3}>
@@ -81,6 +83,7 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
             </Paper>
           </Container>
         </Box>
+        }
       </ThemeProvider>
   )
 }
