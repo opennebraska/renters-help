@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from "@material-ui/styles";
 import Box from '@material-ui/core/Box';
@@ -7,6 +7,7 @@ import {createMuiTheme} from "@material-ui/core";
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import EmailIcon from '@material-ui/icons/Email';
 import DescriptionIcon from '@material-ui/icons/Description';
+import * as ReactGA from "react-ga";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -47,12 +48,13 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
 
 export default function Home({state, setState}) {
     const classes = useStyles();
+    useEffect(() => ReactGA.pageview('home'), []);
     return (
         <React.Fragment>
             <div style={{textAlign: "center"}}>
                 <Box pt={4} pb={6} pl={[2, 4, 6, 24]} pr={[2, 4, 6, 24]} className={classes.boxColor}>
                     <h1 className={classes.bigText}>Are you facing an <span style={{color: '#DC2A44'}}>eviction</span>? This tool can help.</h1>
-                    <p>If you're having trouble keeping up with your rent payments, the Federal Government has issued an order that prevents 
+                    <p>If you're having trouble keeping up with your rent payments, the Federal Government has issued an order that prevents
                         landlords in the US from evicting many of their tenants until after December 31, 2020. Use this tool to see if you are covered,
                         and to produce the right letter (called a "Declaration") to send to your landlord, as required by the order.</p>
                     <Button style={{borderRadius: 15, textTransform:'none', height:50, width:200}} color='primary' variant='contained' disableElevation
@@ -82,11 +84,11 @@ export default function Home({state, setState}) {
                         About Nebraska Renters Help
                     </h2>
                     <p>
-                        Nebraska Renters Help was built by Code for Nebraska. 
+                        Nebraska Renters Help was built by Code for Nebraska.
                         The purpose of the site is to provide self-help tools and resources to struggling
                         Nebraska renters so that they can obtain protection they are entitled to under the current
                         CDC Federal Eviction Moratorium.
-                    </p>                
+                    </p>
                 </Box>
                 <Box pt={10}>
                     <footer>

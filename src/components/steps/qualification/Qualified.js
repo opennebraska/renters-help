@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
@@ -9,6 +9,7 @@ import {CheckCircleRounded} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import StepButtons from "../StepButtons";
+import * as ReactGA from "react-ga";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Qualified({state, setState}) {
-
+    useEffect(() => ReactGA.pageview('qualified'), []);
     const classes = useStyles();
 
         if (state.currentStep !== QualificationSteps.QUALIFIED) {
