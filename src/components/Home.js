@@ -92,7 +92,7 @@ export default function Home({state, setState}) {
                 </Box>
                 <Box pt={10}>
                     <footer>
-                        <p>2020 Open Nebraska</p>
+                        <p>2020 <a href="https://codefornebraska.org/" target="_blank" rel="nofollow">Code for Nebraska</a></p>
                     </footer>
                 </Box>
             </div>
