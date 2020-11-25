@@ -1,6 +1,6 @@
 {
   "name": "renters-help",
-  "homepage": "http://opennebraska.gihub.io/renters-help",
+  "homepage": "https://nebraskarentershelp.org",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "deploy-firebase": "firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
