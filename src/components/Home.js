@@ -101,7 +101,16 @@ export default function Home({state, setState}) {
                         necessary.
                     </p>
                 </Box>
-                <Box pt={10}>
+                <Box pt={2} pb={2} pl={[4, 8, 16, 40]} pr={[4, 8, 16, 40]}>
+                    <h2>
+                        Other Rental Assistance
+                    </h2>
+                    <p>Please call <Link color="primary" href="https://www.legalaidofnebraska.org/how-we-help/resources/covid-19-coronavirus/housingcorona/tenants/"
+                    target="_blank" rel="nofollow">Legal Aid</Link> toll-free at 1-844-268-5627</p>
+                    <p><Link color="primary" href="https://www.douglascounty-ne.gov/coronovirus-relief-fund-information"
+                    target="_blank" rel="nofollow">Douglas County CARES Act</Link></p>
+                </Box>
+                <Box pt={2}>
                     <footer>
                         <p><Link color="primary" href="https://codefornebraska.org/" target="_blank" rel="nofollow">2020
                             Code for Nebraska</Link></p>
