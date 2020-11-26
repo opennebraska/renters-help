@@ -94,7 +94,7 @@ export default function Home({state, setState}) {
                     <p>
                         Nebraska Renters Help was built by Code for Nebraska.
                         The purpose of the site is to provide self-help tools and resources to struggling
-                        Nebraska renters so that they can obtain protection they are entitled to under the current
+                        Nebraska renters so that they can obtain entitled protection under the current
                         CDC Federal Eviction Moratorium. The information in Nebraska Renters Help does not constitute legal
                         advice and must not be used as a substitute for the advice of a lawyer qualified to give advice
                         on legal issues pertaining to housing. We can help direct you to free legal services if
