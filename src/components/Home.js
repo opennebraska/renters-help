@@ -53,7 +53,7 @@ export default function Home({state, setState}) {
     return (
         <>
             <div style={{textAlign: "center"}}>
-                <Box pt={4} pb={6} pl={[2, 4, 6, 24]} pr={[2, 4, 6, 24]} className={classes.boxColor}>
+                <Box pt={6} pb={6} pl={[2, 4, 6, 24]} pr={[2, 4, 6, 24]} className={classes.boxColor}>
                     <h1 className={classes.bigText}>Are you facing an <span style={{color: '#DC2A44'}}>eviction</span>?
                         This tool can help.</h1>
                     <p>If you're having trouble keeping up with your rent payments, the Federal Government has issued an
