@@ -1,6 +1,6 @@
 {
   "name": "renters-help",
-  "homepage": "https://nebraskarentershelp.org",
+  "homepage": "http://opennebraska.gihub.io/renters-help",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
