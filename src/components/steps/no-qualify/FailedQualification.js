@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 
 export default function FailedQualification({state, setState}) {
     const { currentStep, formNumber } = state;
-    useEffect(() => ReactGA.pageview(`failed qualification on step: ${currentStep} and form: ${formNumber}`), []);
+    useEffect(() => ReactGA.pageview(`failed qualification on step: ${currentStep} and form: ${formNumber}`), [currentStep, formNumber]);
     const classes = useStyles();
     if (state.currentStep >= 0) {
         return null
