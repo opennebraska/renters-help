@@ -3,21 +3,14 @@ import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import {makeStyles} from "@material-ui/styles";
 import StepButtons from "../StepButtons";
 import {Link} from "@material-ui/core";
 import * as ReactGA from "react-ga";
 
-const useStyles = makeStyles(() => ({
-    link: {
-        cursor: 'pointer'
-    }
-}));
 
 export default function FailedQualification({state, setState}) {
     const { currentStep, formNumber } = state;
     useEffect(() => ReactGA.pageview(`failed qualification on step: ${currentStep} and form: ${formNumber}`), [currentStep, formNumber]);
-    const classes = useStyles();
     if (state.currentStep >= 0) {
         return null
     }
@@ -34,7 +27,7 @@ export default function FailedQualification({state, setState}) {
             </Typography>
             <List>
                 <ListItem>
-                    <Link className={classes.link} color={'primary'} href='https://www.legalaidofnebraska.org/'>Legal
+                    <Link style={{cursor:'pointer'}} color={'primary'} href='https://www.legalaidofnebraska.org/'>Legal
                         Aid of Nebraska</Link>
                 </ListItem>
             </List>
