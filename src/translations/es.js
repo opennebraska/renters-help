@@ -13,6 +13,7 @@ const translations = {
         affordRentExtraordinaryExplained: 'An “extraordinary” medical expense is any un-reimbursed medical expense likely to exceed ' +
             '7.5% of one’s adjusted gross income for the year.',
         affordRentExtraordinaryQuestion: 'What are "extraordinary medical costs"?',
+        attemptingToPayTitle: 'I am doing my best to pay as much rent as I can, given my circumstances',
         failedQualificationTitle: 'Sorry, it looks like you don\'t qualify',
         failedQualificationBody: 'If the answers you gave indicate you don\'t qualify, you can restart but please proceed with caution and ' +
             'remember that you must answer these questions truthfully. You could be subject to civil or criminal ' +
