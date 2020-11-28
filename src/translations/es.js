@@ -14,7 +14,7 @@ const translations = {
             'on legal issues pertaining to housing. We can help direct you to free legal services if ' +
             'necessary.',
         homeContactLegalAid: 'Please call <1>Legal Aid</1> toll-free at 1-844-268-5627',
-        homeInstruction1Title: 'Fill out the form in 3 minutes',
+        homeInstruction1Title: 'Fill out the form in 5 minutes',
         homeInstruction1Info: 'Answer a few questions and provide your<1/>landlord\'s contact information',
         homeInstruction2Title: 'The tool will create a letter',
         homeInstruction2Info: 'The app will create a letter that is ready<1/>to send based on your answers',
