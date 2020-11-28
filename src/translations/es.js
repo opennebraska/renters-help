@@ -1,5 +1,18 @@
 const translations = {
     translation: {
+        yes: 'Yes',
+        no: 'No',
+        affordRentTitle: 'Can you afford your rent?',
+        affordRentOptionsTitle: 'Check all that apply',
+        affordRentOptionLostSubstantialIncome: 'My household lost substantial income',
+        affordRentOptionLostJob: 'I lost my job',
+        affordRentOptionHoursCut: 'My hours were cut',
+        affordRentOptionSalaryReduced: 'My salary was reduced',
+        affordRentOptionExtraordinaryMedicalCost: 'I have extraordinary medical costs that I pay out of pocket that insurance does not cover',
+        affordRentOptionNone: 'None of the above',
+        affordRentExtraordinaryExplained: 'An “extraordinary” medical expense is any un-reimbursed medical expense likely to exceed ' +
+            '7.5% of one’s adjusted gross income for the year.',
+        affordRentExtraordinaryQuestion: 'What are "extraordinary medical costs"?',
         failedQualificationTitle: 'Sorry, it looks like you don\'t qualify',
         failedQualificationBody: 'If the answers you gave indicate you don\'t qualify, you can restart but please proceed with caution and ' +
             'remember that you must answer these questions truthfully. You could be subject to civil or criminal ' +

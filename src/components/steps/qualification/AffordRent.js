@@ -11,6 +11,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import StepButtons from "../StepButtons";
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -36,7 +37,7 @@ const validate = (form, state, setState) => {
 }
 
 export default function AffordRent({state, setState}) {
-
+    const {t} = useTranslation();
     const classes = useStyles();
     const [form, setForm] = React.useState({
         selected: 'none',
@@ -80,51 +81,48 @@ export default function AffordRent({state, setState}) {
     }
 
     const rentReasons = (<FormGroup>
-        <Typography variant='body1'>Check all that apply</Typography>
+        <Typography variant='body1'>{t('affordRentOptionsTitle')}</Typography>
         <FormControlLabel
             control={<Checkbox checked={lostSubstantialIncome} onChange={handleChange}
-                               name="lostSubstantialIncome" color='primary' />}
-            label="My household lost substantial income"
+                               name="lostSubstantialIncome" color='primary'/>}
+            label={t('affordRentOptionLostSubstantialIncome')}
         />
         <FormControlLabel
             control={<Checkbox checked={lostJob} onChange={handleChange}
-                               name="lostJob" color='primary' />}
-            label="I lost my job"
+                               name="lostJob" color='primary'/>}
+            label={t('affordRentOptionLostJob')}
         />
         <FormControlLabel
-            control={<Checkbox checked={hoursCut} onChange={handleChange} name="hoursCut" color='primary' />}
-            label="My hours were cut"
+            control={<Checkbox checked={hoursCut} onChange={handleChange} name="hoursCut" color='primary'/>}
+            label={t('affordRentOptionHoursCut')}
         />
         <FormControlLabel
             control={<Checkbox checked={salaryReduced} onChange={handleChange}
-                               name="salaryReduced" color='primary' />}
-            label="My salary was reduced"
+                               name="salaryReduced" color='primary'/>}
+            label={t('affordRentOptionSalaryReduced')}
         />
         <FormControlLabel
             control={<Checkbox checked={extraordinaryMedicalCost} onChange={handleChange}
-                               name="extraordinaryMedicalCost" color='primary' />}
-            label="I have extraordinary medical costs that I pay out of pocket that insurance does not cover"
+                               name="extraordinaryMedicalCost" color='primary'/>}
+            label={t('affordRentOptionExtraordinaryMedicalCost')}
         />
         <FormControlLabel
-            control={<Checkbox checked={none} onChange={handleChange} name="none" color='primary' />}
-            label="None of the above"
+            control={<Checkbox checked={none} onChange={handleChange} name="none" color='primary'/>}
+            label={t('affordRentOptionNone')}
         />
         <Link className={classes.link} onClick={() => {
             setShowMedicalDef(!showMedicalDef);
-        }} color="primary" style={{textAlign: 'left'}}>What are "extraordinary medical costs"?</Link>
+        }} color="primary" style={{textAlign: 'left'}}>{t('affordRentExtraordinaryQuestion')}</Link>
         {showMedicalDef &&
-        <FormHelperText>An “extraordinary” medical expense is any unreimbursed medical expense likely to exceed
-            7.5% of one’s adjusted gross income for the year.</FormHelperText>}
+        <FormHelperText>{t('affordRentExtraordinaryExplained')}</FormHelperText>}
     </FormGroup>)
 
     return (<React.Fragment>
-        <Typography variant='h4' component='h1' className='title'>
-            Can you afford your rent?
-        </Typography>
+        <Typography variant='h4' component='h1' className='title'>{t('affordRentTitle')}</Typography>
         <FormControl component="fieldset">
             <RadioGroup value={selected} onChange={handleSelectedChange}>
-                <FormControlLabel value="Yes" control={<Radio color='primary'/>} label="Yes"/>
-                <FormControlLabel value="No" control={<Radio color='primary'/>} label="No"/>
+                <FormControlLabel value="Yes" control={<Radio color='primary'/>} label={t('yes')}/>
+                <FormControlLabel value="No" control={<Radio color='primary'/>} label={t('no')}/>
             </RadioGroup>
             {'No' === selected && rentReasons}
         </FormControl>

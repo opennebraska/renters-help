@@ -1,6 +1,18 @@
 const translations =  {
   translation: {
-
+    yes: 'Yes',
+    no: 'No',
+    affordRentTitle: 'Can you afford your rent?',
+    affordRentOptionsTitle: 'Check all that apply',
+    affordRentOptionLostSubstantialIncome: 'My household lost substantial income',
+    affordRentOptionLostJob: 'I lost my job',
+    affordRentOptionHoursCut: 'My hours were cut',
+    affordRentOptionSalaryReduced: 'My salary was reduced',
+    affordRentOptionExtraordinaryMedicalCost: 'I have extraordinary medical costs that I pay out of pocket that insurance does not cover',
+    affordRentOptionNone: 'None of the above',
+    affordRentExtraordinaryExplained: 'An “extraordinary” medical expense is any un-reimbursed medical expense likely to exceed ' +
+        '7.5% of one’s adjusted gross income for the year.',
+    affordRentExtraordinaryQuestion: 'What are "extraordinary medical costs"?',
     homeAboutHeader: 'About Nebraska Renters Help',
     homeAboutInfo: 'Nebraska Renters Help was built by Code for Nebraska. ' +
         'The purpose of the site is to provide self-help tools and resources so struggling ' +
