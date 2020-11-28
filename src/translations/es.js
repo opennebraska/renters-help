@@ -30,6 +30,12 @@ const translations = {
             "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required\n" +
             "by the order.",
         homeStartButton: 'Start Free Tool',
+        landlordInfoTitle: 'Enter your landlord\'s information',
+        landlordInfoBody: 'This information will determine where your letter is sent. You can send this information to go ' +
+            'to your landlord, the owner of the property where you live, or another person who has the right ' +
+            'to have you evicted or removed from where you live. If you are unsure where to send this notice, ' +
+            'please look at your lease or ask your landlord where you may send a legal notice.',
+
     }
 }
 

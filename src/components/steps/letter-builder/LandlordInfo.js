@@ -6,6 +6,7 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import StepButtons from "../StepButtons";
+import {Trans} from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   companyInformation: {
@@ -40,13 +41,17 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
   return (
       <>
         <Typography variant='h4' component='h1' className='title'>
-          Enter your landlord's information
+            <Trans i18nKey="landlordInfoTitle">
+                Enter your landlord's information
+            </Trans>
         </Typography>
         <Typography variant='body1'>
-          This information will determine where your letter is sent. You can send this information to go
-          to your landlord, the owner of the property where you live, or another person who has the right
-          to have you evicted or removed from where you live. If you are unsure where to send this notice,
-          please look at your lease or ask your landlord where you may send a legal notice.
+            <Trans i18nKey="landlordInfoBody">
+              This information will determine where your letter is sent. You can send this information to go
+              to your landlord, the owner of the property where you live, or another person who has the right
+              to have you evicted or removed from where you live. If you are unsure where to send this notice,
+              please look at your lease or ask your landlord where you may send a legal notice.
+            </Trans>
         </Typography>
         <FormControl margin={'dense'} fullWidth>
           <TextField fullWidth className={classes.companyInformation} id="company" label="company" value={company} onChange={handleChange} variant={"outlined"}/>
