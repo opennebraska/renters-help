@@ -128,8 +128,12 @@ export default function Home({state, setState}) {
                     <h2>
                         {t('homeOtherRentalAssistance')}
                     </h2>
-                    <p>Please call <Link color="primary" href="https://www.legalaidofnebraska.org/how-we-help/resources/covid-19-coronavirus/housingcorona/tenants/"
-                    target="_blank" rel="nofollow">Legal Aid</Link> toll-free at 1-844-268-5627</p>
+                    <p>
+                        <Trans i18nKey="homeContactLegalAid">
+                            Please call <Link color="primary" href="https://www.legalaidofnebraska.org/how-we-help/resources/covid-19-coronavirus/housingcorona/tenants/"
+                                              target="_blank" rel="nofollow">Legal Aid</Link> toll-free at 1-844-268-5627
+                        </Trans>
+                    </p>
                     <p><Link color="primary" href="https://www.douglascounty-ne.gov/coronovirus-relief-fund-information"
                     target="_blank" rel="nofollow">Douglas County CARES Act</Link></p>
                 </Box>
