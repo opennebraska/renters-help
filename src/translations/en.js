@@ -18,6 +18,13 @@ const translations =  {
         "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required\n" +
         "by the order.",
     homeStartButton: 'Start Free Tool',
+    personalInformationFirstName: 'First Name',
+    personalInformationLastName: 'Last Name',
+    personalInformationAddress: 'Current Address',
+    personalInformationUnit: 'Unit (optional)',
+    personalInformationCity: 'City',
+    personalInformationState: 'State',
+    personalInformationZip: 'Zip',
   }
 }
 

@@ -9,6 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FlexContainer from "../../FlexContainer";
 import StepButtons from "../StepButtons";
 import {FormControl} from "@material-ui/core";
+import { Trans, useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
   personalInformation: {
@@ -35,6 +36,7 @@ const validate = (renterInfo, setErrors) => {
 export default function PersonalInformation({state, setState, renterInfo, setRenterInfo}) {
 
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const [errors, setErrors] = useState({
     firstName: false,
@@ -61,29 +63,32 @@ export default function PersonalInformation({state, setState, renterInfo, setRen
   return (
       <>
         <Typography variant='h4' component='h1' className='title'>
-          Enter your information
+          <Trans i18nKey="personalInformationTitle">
+            Enter your information
+          </Trans>
         </Typography>
         <Typography variant='body1'>
-          We need this information to complete a cover letter to your landlord as well as to ensure that
-          you qualify to use this self-help tool.
+          <Trans i18nKey="personalInformationBody">
+            We need this information to complete a cover letter to your landlord as well as to ensure that you qualify to use this self-help tool.
+          </Trans>
         </Typography>
         <FormControl margin={'dense'} fullWidth>
           <FlexContainer>
-            <TextField fullWidth className={classes.personalInformation} id="firstName" label="First Name" value={renterInfo.firstName} onChange={handleChange} variant="outlined" error={errors.firstName} required/>
-            <TextField fullWidth className={classes.personalInformation} id="lastName" label="Last Name" value={renterInfo.lastName} onChange={handleChange} variant="outlined" error={errors.lastName} required/>
+            <TextField fullWidth className={classes.personalInformation} id="firstName" label={t('personalInformationFirstName')} value={renterInfo.firstName} onChange={handleChange} variant="outlined" error={errors.firstName} required/>
+            <TextField fullWidth className={classes.personalInformation} id="lastName" label={t('personalInformationLastName')} value={renterInfo.lastName} onChange={handleChange} variant="outlined" error={errors.lastName} required/>
           </FlexContainer>
 
           <FlexContainer>
-            <TextField fullWidth className={classes.personalInformation} id="address" label="Current Address" value={renterInfo.address} onChange={handleChange} variant="outlined" error={errors.address} required/>
-            <TextField className={classes.personalInformation} id="unit" label="Unit (optional)" value={renterInfo.unit} onChange={handleChange} variant="outlined"/>
+            <TextField fullWidth className={classes.personalInformation} id="address" label={t('personalInformationAddress')} value={renterInfo.address} onChange={handleChange} variant="outlined" error={errors.address} required/>
+            <TextField className={classes.personalInformation} id="unit" label={t('personalInformationUnit')} value={renterInfo.unit} onChange={handleChange} variant="outlined"/>
           </FlexContainer>
 
           <FlexContainer>
-            <TextField fullWidth className={classes.personalInformation} id="city" label="City" value={renterInfo.city} onChange={handleChange} variant="outlined" error={errors.city} required/>
-            <TextField select fullWidth variant={'outlined'} className={classes.personalInformation} labelId="state-select" id="state" value={renterInfo.state} onChange={handleStateChange} error={errors.state} required>
-              {Object.values(States).map((st) => <MenuItem id="state" value={st}>{st}</MenuItem>)}
+            <TextField fullWidth className={classes.personalInformation} id="city" label={t('personalInformationCity')} value={renterInfo.city} onChange={handleChange} variant="outlined" error={errors.city} required/>
+            <TextField select fullWidth variant={'outlined'} className={classes.personalInformation} labelid="state-select" id="state" value={renterInfo.state} onChange={handleStateChange} error={errors.state} required>
+              {Object.values(States).map((st) => <MenuItem key={st} id="state" value={st}>{st}</MenuItem>)}
             </TextField>
-            <TextField fullWidth className={classes.personalInformation} id="zip" label="Zip" value={renterInfo.zip} onChange={handleChange} variant="outlined" error={errors.zip} required/>
+            <TextField fullWidth className={classes.personalInformation} id="zip" label={t('personalInformationZip')} value={renterInfo.zip} onChange={handleChange} variant="outlined" error={errors.zip} required/>
           </FlexContainer>
         </FormControl>
         <StepButtons state={state} setState={setState} validate={() => validate(renterInfo, setErrors)}/>

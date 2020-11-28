@@ -23,11 +23,11 @@ const translations = {
         homeLanguagePreference: 'Prefer English?',
         homeOtherRentalAssistance: 'Other Rental Assistance',
         homePageTitle: 'Are you facing an <1>eviction</1>? This tool can help.',
-        homeReasonToUse: "If you're having trouble keeping up with your rent payments, the Federal Government has issued an\n" +
-            "order that prevents\n" +
-            "landlords in the US from evicting many of their tenants until after December 31, 2020. Use this\n" +
-            "tool to see if you are covered,\n" +
-            "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required\n" +
+        homeReasonToUse: "If you're having trouble keeping up with your rent payments, the Federal Government has issued an " +
+            "order that prevents " +
+            "landlords in the US from evicting many of their tenants until after December 31, 2020. Use this " +
+            "tool to see if you are covered, " +
+            "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required " +
             "by the order.",
         homeStartButton: 'Start Free Tool',
         landlordInfoTitle: 'Enter your landlord\'s information',
@@ -35,7 +35,15 @@ const translations = {
             'to your landlord, the owner of the property where you live, or another person who has the right ' +
             'to have you evicted or removed from where you live. If you are unsure where to send this notice, ' +
             'please look at your lease or ask your landlord where you may send a legal notice.',
-
+        personalInformationTitle: 'Enter your information',
+        personalInformationBody: 'We need this information to complete a cover letter to your landlord as well as to ensure that you qualify to use this self-help tool.',
+        personalInformationFirstName: 'First Name',
+        personalInformationLastName: 'Last Name',
+        personalInformationAddress: 'Current Address',
+        personalInformationUnit: 'Unit (optional)',
+        personalInformationCity: 'City',
+        personalInformationState: 'State',
+        personalInformationZip: 'Zip',
     }
 }
 
