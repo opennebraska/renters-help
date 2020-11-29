@@ -81,7 +81,7 @@ export default function AffordRent({state, setState}) {
     }
 
     const rentReasons = (<FormGroup>
-        <Typography variant='body1'>{t('affordRentOptionsTitle')}</Typography>
+        <Typography variant='body1'>{t('checkAllThatApply')}</Typography>
         <FormControlLabel
             control={<Checkbox checked={lostSubstantialIncome} onChange={handleChange}
                                name="lostSubstantialIncome" color='primary'/>}
@@ -108,7 +108,7 @@ export default function AffordRent({state, setState}) {
         />
         <FormControlLabel
             control={<Checkbox checked={none} onChange={handleChange} name="none" color='primary'/>}
-            label={t('affordRentOptionNone')}
+            label={t(' noneOfTheAbove')}
         />
         <Link className={classes.link} onClick={() => {
             setShowMedicalDef(!showMedicalDef);

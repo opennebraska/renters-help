@@ -1,15 +1,15 @@
 const translations =  {
   translation: {
-    yes: 'Yes',
+    checkAllThatApply: 'Check all that apply',
     no: 'No',
+    noneOfTheAbove: 'None of the above',
+    yes: 'Si',
     affordRentTitle: 'Can you afford your rent?',
-    affordRentOptionsTitle: 'Check all that apply',
     affordRentOptionLostSubstantialIncome: 'My household lost substantial income',
     affordRentOptionLostJob: 'I lost my job',
     affordRentOptionHoursCut: 'My hours were cut',
     affordRentOptionSalaryReduced: 'My salary was reduced',
     affordRentOptionExtraordinaryMedicalCost: 'I have extraordinary medical costs that I pay out of pocket that insurance does not cover',
-    affordRentOptionNone: 'None of the above',
     affordRentExtraordinaryExplained: 'An “extraordinary” medical expense is any un-reimbursed medical expense likely to exceed ' +
         '7.5% of one’s adjusted gross income for the year.',
     affordRentExtraordinaryQuestion: 'What are "extraordinary medical costs"?',
@@ -37,6 +37,10 @@ const translations =  {
         "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required\n" +
         "by the order.",
     homeStartButton: 'Start Free Tool',
+    incomeQualificationsTitle: 'Income Qualification',
+    incomeQualificationsOptionNoIncome: 'I did not report any income to the I.R.S. for 2019',
+    incomeQualificationsOptionStimulusCheck: 'I got a stimulus check (Economic Impact Payment) in 2020',
+    incomeQualificationsOptionUnderIncomeThreshold: 'I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return',
     personalInformationFirstName: 'First Name',
     personalInformationLastName: 'Last Name',
     personalInformationAddress: 'Current Address',

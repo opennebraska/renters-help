@@ -8,6 +8,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import StepButtons from "../StepButtons";
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,6 +31,7 @@ const validateIncomeQualification = (form, state, setState) => {
 }
 
 export default function IncomeQualifications({state, setState}) {
+    const {t} = useTranslation();
 
     const classes = useStyles();
     const [form, setForm] = React.useState({
@@ -59,39 +61,35 @@ export default function IncomeQualifications({state, setState}) {
     if (state.currentStep !== QualificationSteps.INCOME_QUALIFICATIONS) {
         return null
     }
-    return (<React.Fragment>
-        <Typography variant='h4' component='h1' className='title'>
-            Income Qualification
-        </Typography>
-        <Typography variant='body1'>
-            Check all that apply
-        </Typography>
+    return (<>
+        <Typography variant='h4' component='h1' className='title'>{t('incomeQualificationsTitle')}</Typography>
+        <Typography variant='body1'>{t('checkAllThatApply')}</Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>
                 <FormControlLabel
                     control={<Checkbox checked={noIncome} onChange={handleChange} name="noIncome" color='primary'/>}
-                    label="I did not report any income to the I.R.S. for 2019"
+                    label={t('incomeQualificationsOptionNoIncome')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={stimulusCheck} onChange={handleChange}
                                        name="stimulusCheck" color='primary'/>}
-                    label="I got a stimulus check (Economic Impact Payment) in 2020"
+                    label={t('incomeQualificationsOptionStimulusCheck')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={underIncomeThreshold} onChange={handleChange}
                                        name="underIncomeThreshold" color='primary'/>}
-                    label="I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return"
+                    label={t('incomeQualificationsOptionUnderIncomeThreshold')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={noneOfTheAbove} onChange={handleChange}
                                        name="noneOfTheAbove" color='primary' />}
-                    label="None of the above"
+                    label={t(' noneOfTheAbove')}
                 />
             </FormGroup>
         </FormControl>
         <StepButtons state={state} setState={setState}
                      validate={() => validateIncomeQualification(form, state, setState)} disableNext={noneSelected}/>
-    </React.Fragment>)
+    </>)
 }
 
 IncomeQualifications.propTypes = {
