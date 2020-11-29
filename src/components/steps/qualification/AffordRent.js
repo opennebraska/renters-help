@@ -108,7 +108,7 @@ export default function AffordRent({state, setState}) {
         />
         <FormControlLabel
             control={<Checkbox checked={none} onChange={handleChange} name="none" color='primary'/>}
-            label={t(' noneOfTheAbove')}
+            label={t('noneOfTheAbove')}
         />
         <Link className={classes.link} onClick={() => {
             setShowMedicalDef(!showMedicalDef);

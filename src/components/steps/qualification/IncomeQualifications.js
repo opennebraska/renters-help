@@ -83,7 +83,7 @@ export default function IncomeQualifications({state, setState}) {
                 <FormControlLabel
                     control={<Checkbox checked={noneOfTheAbove} onChange={handleChange}
                                        name="noneOfTheAbove" color='primary' />}
-                    label={t(' noneOfTheAbove')}
+                    label={t('noneOfTheAbove')}
                 />
             </FormGroup>
         </FormControl>

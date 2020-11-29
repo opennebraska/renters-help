@@ -83,6 +83,13 @@ const translations = {
         startFirstStep: 'Make sure you qualify (there are 5 question we will ask you).',
         startSecondStep: 'Fill out your address and your landlord\'s information.',
         startThirdStep: 'Send the letter to your landlord (we can help you with that).',
+        unsafeLivingTitle: 'Would an eviction result in a health risk to you by placing you in unsafe living conditions?',
+        unsafeLivingOptionLikelyBecomeHomeless:'I am likely to become homeless',
+        unsafeLivingOptionMoveToShelter:'I will probably need to move into a homeless shelter',
+        unsafeLivingOptionMoveToCloseQuarters:'I will probably need to move in with someone else in close quarters',
+        unsafeLivingOptionNoOtherSafeChoices:'I do not have any other safe housing choices',
+        unsafeLivingOptionOtherChoicesMoreExpensive:'Any other safe housing choices would cost me more money',
+        unsafeLivingOptionNotAtRisk:'I am not at risk of unsafe housing',
     }
 }
 

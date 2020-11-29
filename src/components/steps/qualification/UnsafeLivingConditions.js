@@ -8,6 +8,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import StepButtons from "../StepButtons";
+import {useTranslation} from "react-i18next";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,7 +31,7 @@ const validate = (form, state, setState) => {
 }
 
 export default function UnsafeLivingConditions({state, setState}) {
-
+    const {t} = useTranslation();
     const classes = useStyles();
     const [form, setForm] = React.useState({
         likelyBecomeHomeless: false,
@@ -64,43 +65,39 @@ export default function UnsafeLivingConditions({state, setState}) {
         return null
     }
     return (<React.Fragment>
-        <Typography variant='h4' component='h1' className='title'>
-            Would an eviction result in a health risk to you by placing you in unsafe living conditions?
-        </Typography>
-        <Typography variant='body1'>
-            Check all that apply
-        </Typography>
+        <Typography variant='h4' component='h1' className='title'>{t('unsafeLivingTitle')}</Typography>
+        <Typography variant='body1'>{t('checkAllThatApply')}</Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>
                 <FormControlLabel
                     control={<Checkbox checked={likelyBecomeHomeless} onChange={handleChange}
                                        name="likelyBecomeHomeless" color='primary'/>}
-                    label="I am likely to become homeless"
+                    label={t('unsafeLivingOptionLikelyBecomeHomeless')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={moveToShelter} onChange={handleChange}
                                        name="moveToShelter" color='primary'/>}
-                    label="I will probably need to move into a homeless shelter"
+                    label={t('unsafeLivingOptionMoveToShelter')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={moveToCloseQuarters} onChange={handleChange}
                                        name="moveToCloseQuarters" color='primary' />}
-                    label="I will probably need to move in with someone else in close quarters"
+                    label={t('unsafeLivingOptionMoveToCloseQuarters')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={noOtherSafeChoices} onChange={handleChange}
                                        name="noOtherSafeChoices" color='primary' />}
-                    label="I do not have any other safe housing choices"
+                    label={t('unsafeLivingOptionNoOtherSafeChoices')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={otherChoicesMoreExpensive} onChange={handleChange}
                                        name="otherChoicesMoreExpensive" color='primary' />}
-                    label="Any other safe housing choices would cost me more money"
+                    label={t('unsafeLivingOptionOtherChoicesMoreExpensive')}
                 />
                 <FormControlLabel
                     control={<Checkbox checked={notAtRisk} onChange={handleChange}
                                        name="notAtRisk" color='primary'/>}
-                    label="I am not at risk of unsafe housing"
+                    label={t('unsafeLivingOptionNotAtRisk')}
                 />
             </FormGroup>
         </FormControl>
