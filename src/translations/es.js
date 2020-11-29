@@ -1,6 +1,6 @@
 const translations = {
     translation: {
-        yes: 'Yes',
+        yes: 'Si',
         no: 'No',
         affordRentTitle: 'Can you afford your rent?',
         affordRentOptionsTitle: 'Check all that apply',
@@ -19,6 +19,13 @@ const translations = {
             'remember that you must answer these questions truthfully. You could be subject to civil or criminal ' +
             'penalties if you lie on these forms. If you are in need of legal help, please see the resources provided ' +
             'by a legal aid organization: ',
+        governmentHelpTitle: 'Did you do your best to get government help to pay the rent?',
+        governmentHelpBody: 'If you do not qualify for any help from the government, or if applications were closed, your application ' +
+            'was wait-listed, or assistance programs were no longer available or if you applied and you were denied, ' +
+            'answer ‘Yes’.',
+        governmentHelpBestEffortsQuestion: 'What are "best efforts" and "government help"?',
+        governmentHelpBestEffortsExplanation: '"Government help" means any governmental rental or housing payment benefits available to the individual ' +
+            'or any household member. "Best efforts" is not defined by the Order. You should document whether your any applications were successful.',
         homeAboutHeader: 'About Nebraska Renters Help',
         homeAboutInfo: 'Nebraska Renters Help was built by Code for Nebraska. ' +
             'The purpose of the site is to provide self-help tools and resources so struggling ' +
