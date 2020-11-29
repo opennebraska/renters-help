@@ -77,6 +77,12 @@ const translations = {
         qualifiedBodyAgreeingPayInFullAfterDate: 'After December 31, 2020, I may be required to pay all of the rent due, in full.',
         qualifiedBodyAgreeingTellTheTruth: 'I need to tell the truth on this form. If I do not, I may face civil or criminal penalties.',
         qualifiedBodyConfirmUnderstanding: 'I Understand',
+        startTitle: 'How to stay in your home',
+        startDescription: 'The federal government has banned landlords from evicting qualifying tenants for non-payment of ' +
+            'rent due to the COVID-19 public health crisis. In order to protect yourself you need to:',
+        startFirstStep: 'Make sure you qualify (there are 5 question we will ask you).',
+        startSecondStep: 'Fill out your address and your landlord\'s information.',
+        startThirdStep: 'Send the letter to your landlord (we can help you with that).',
     }
 }
 

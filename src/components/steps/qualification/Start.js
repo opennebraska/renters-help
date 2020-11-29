@@ -10,6 +10,7 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import StepButtons from "../StepButtons";
 import * as ReactGA from "react-ga";
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Start({state, setState}) {
+    const {t} = useTranslation();
     useEffect(() => ReactGA.pageview('Start step'), []);
     const classes = useStyles();
     if (state.currentStep !== QualificationSteps.START) {
@@ -29,38 +31,21 @@ export default function Start({state, setState}) {
     }
     return (
         <React.Fragment>
-            <Typography variant='h4' className='title'>
-                How to stay in your home
-            </Typography>
-            <Typography variant='body1'>
-                The federal government has banned landlords from evicting qualifying tenants for non-payment of
-                rent due to the COVID-19 public health crisis. In order to protect yourself you need to:
-            </Typography>
+            <Typography variant='h4' className='title'>{t('startTitle')}</Typography>
+            <Typography variant='body1'>{t('startDescription')}</Typography>
             <div className={classes.demo}>
                 <List>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="Make sure you qualify (there are 5 question we will ask you)."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('startFirstStep')}/>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="Fill out your address and your landlord's information."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('startSecondStep')}/>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="Send the letter to your landlord (we can help you with that)."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('startThirdStep')}/>
                     </ListItem>
                 </List>
             </div>
