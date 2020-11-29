@@ -69,6 +69,14 @@ const translations = {
         personalInformationCity: 'City',
         personalInformationState: 'State',
         personalInformationZip: 'Zip',
+        qualifiedTitle: 'Great, you qualify! Read the following information carefully.',
+        qualifiedBodyAgreeingDescription: 'When you sign the Declaration form, you are agreeing that you understand the following sentences and ' +
+            'that they are true:',
+        qualifiedBodyProtected: 'Even though I am protected from eviction through December 31, 2020,',
+        qualifiedBodyAgreeingStillResponsible: 'I still am responsible to pay my rent and follow all other rules of my lease. My landlord may charge me fees or interest.',
+        qualifiedBodyAgreeingPayInFullAfterDate: 'After December 31, 2020, I may be required to pay all of the rent due, in full.',
+        qualifiedBodyAgreeingTellTheTruth: 'I need to tell the truth on this form. If I do not, I may face civil or criminal penalties.',
+        qualifiedBodyConfirmUnderstanding: 'I Understand',
     }
 }
 

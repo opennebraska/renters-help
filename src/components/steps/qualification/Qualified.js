@@ -10,6 +10,7 @@ import {makeStyles} from "@material-ui/styles";
 import {QualificationSteps} from "../StepNames";
 import StepButtons from "../StepButtons";
 import * as ReactGA from "react-ga";
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -22,53 +23,36 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Qualified({state, setState}) {
+    const {t} = useTranslation();
+
     useEffect(() => ReactGA.pageview('qualified'), []);
     const classes = useStyles();
 
         if (state.currentStep !== QualificationSteps.QUALIFIED) {
             return null
         }
-        return (<React.Fragment>
-            <Typography variant='h4' component='h1' className='title'>
-                Great, you qualify! Read the following information carefully.
-            </Typography>
-            <Typography variant='body1'>
-                When you sign the Declaration form, you are agreeing that you understand the following sentences and
-                that they are true:
-            </Typography>
-            <Typography variant='body1'>
-                Even though I am protected from eviction through December 31, 2020,
-            </Typography>
+        return (<>
+            <Typography variant='h4' component='h1' className='title'>{t('qualifiedTitle')}</Typography>
+            <Typography variant='body1'>{t('qualifiedBodyAgreeingDescription')}</Typography>
+            <Typography variant='body1'>{t('qualifiedBodyProtected')}</Typography>
             <div className={classes.demo}>
                 <List>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="I still am responsible to pay my rent and follow all other rules of my lease. My landlord may charge me fees or interest."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('qualifiedBodyAgreeingStillResponsible')}/>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="After December 31, 2020, I may be required to pay all of the rent due, in full."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('qualifiedBodyAgreeingPayInFullAfterDate')}/>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
-                            <CheckCircleRounded/>
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="I need to tell the truth on this form. If I do not, I may face civil or criminal penalties."
-                        />
+                        <ListItemIcon><CheckCircleRounded/></ListItemIcon>
+                        <ListItemText primary={t('qualifiedBodyAgreeingTellTheTruth')}/>
                     </ListItem>
                 </List>
             </div>
-            <StepButtons state={state} setState={setState} nextText='I Understand'/>
-        </React.Fragment>)
+            <StepButtons state={state} setState={setState} nextText={t('qualifiedBodyConfirmUnderstanding')}/>
+        </>)
 }
 
 Qualified.propTypes = {
