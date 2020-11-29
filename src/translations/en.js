@@ -1,9 +1,11 @@
 const translations = {
     translation: {
         checkAllThatApply: 'Check all that apply',
+        next: 'Next',
         no: 'No',
         noneOfTheAbove: 'None of the above',
-        yes: 'Si',
+        previous: 'Previous',
+        yes: 'Yes',
         affordRentTitle: 'Can you afford your rent?',
         affordRentOptionLostSubstantialIncome: 'My household lost substantial income',
         affordRentOptionLostJob: 'I lost my job',
