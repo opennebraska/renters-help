@@ -6,7 +6,7 @@ import {QualificationSteps} from "../StepNames";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import StepButtons from "../StepButtons";
-import {Trans} from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
   companyInformation: {
@@ -24,7 +24,7 @@ const validate = (landlordInfo, setError) => {
 }
 
 export default function LandlordInfo({state, setState, landlordInfo, setLandlordInfo}) {
-
+  const {t} = useTranslation();
   const classes = useStyles();
 
   const [error, setError] = React.useState(false);
@@ -41,21 +41,14 @@ export default function LandlordInfo({state, setState, landlordInfo, setLandlord
   return (
       <>
         <Typography variant='h4' component='h1' className='title'>
-            <Trans i18nKey="landlordInfoTitle">
-                Enter your landlord's information
-            </Trans>
+            {t('landlordInfoTitle')}
         </Typography>
         <Typography variant='body1'>
-            <Trans i18nKey="landlordInfoBody">
-              This information will determine where your letter is sent. You can send this information to go
-              to your landlord, the owner of the property where you live, or another person who has the right
-              to have you evicted or removed from where you live. If you are unsure where to send this notice,
-              please look at your lease or ask your landlord where you may send a legal notice.
-            </Trans>
+            {t('landlordInfoBody')}
         </Typography>
         <FormControl margin={'dense'} fullWidth>
-          <TextField fullWidth className={classes.companyInformation} id="company" label="company" value={company} onChange={handleChange} variant={"outlined"}/>
-          <TextField fullWidth className={classes.companyInformation} id="fullName" label="full name" required error={error} value={fullName} onChange={handleChange} variant={"outlined"}/>
+          <TextField fullWidth className={classes.companyInformation} id="company" label={t('landlordCompany')} value={company} onChange={handleChange} variant={"outlined"}/>
+          <TextField fullWidth className={classes.companyInformation} id="fullName" label={t('landlordFullName')} required error={error} value={fullName} onChange={handleChange} variant={"outlined"}/>
         </FormControl>
         <StepButtons state={state} setState={setState} validate={() => validate(landlordInfo, setError)}/>
       </>

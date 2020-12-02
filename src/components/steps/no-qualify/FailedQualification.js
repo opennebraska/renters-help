@@ -6,9 +6,10 @@ import ListItem from "@material-ui/core/ListItem";
 import StepButtons from "../StepButtons";
 import {Link} from "@material-ui/core";
 import * as ReactGA from "react-ga";
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function FailedQualification({state, setState}) {
+    const {t} = useTranslation();
     const { currentStep, formNumber } = state;
     useEffect(() => ReactGA.pageview(`failed qualification on step: ${currentStep} and form: ${formNumber}`), [currentStep, formNumber]);
     if (state.currentStep >= 0) {
@@ -17,22 +18,14 @@ export default function FailedQualification({state, setState}) {
     return (
         <>
             <Typography variant='h4' component='h1' className='title'>
-                <Trans i18nKey="failedQualificationTitle">
-                    Sorry, it looks like you don't qualify
-                </Trans>
+                {t('failedQualificationTitle')}
             </Typography>
             <Typography variant='body1'>
-                <Trans i18nKey="failedQualificationBody">
-                    If the answers you gave indicate you don't qualify, you can restart but please proceed with caution and
-                    remember that you must answer these questions truthfully. You could be subject to civil or criminal
-                    penalties if you lie on these forms. If you are in need of legal help, please see the resources provided
-                    by a legal aid organization:
-                </Trans>
+                {t('failedQualificationBody')}
             </Typography>
             <List>
                 <ListItem>
-                    <Link style={{cursor:'pointer'}} color={'primary'} href='https://www.legalaidofnebraska.org/'>Legal
-                        Aid of Nebraska</Link>
+                    <Link style={{cursor:'pointer'}} color={'primary'} href='https://www.legalaidofnebraska.org/'>{t('legalAidOfNebraska')}</Link>
                 </ListItem>
             </List>
             <StepButtons state={state} setState={setState}/>

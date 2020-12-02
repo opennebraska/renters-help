@@ -135,7 +135,7 @@ export default function Home({state, setState}) {
                         </Trans>
                     </p>
                     <p><Link color="primary" href="https://www.douglascounty-ne.gov/coronovirus-relief-fund-information"
-                    target="_blank" rel="nofollow">Douglas County CARES Act</Link></p>
+                    target="_blank" rel="nofollow">{t('douglasCountyCaresAct')}</Link></p>
                 </Box>
                 <Box pt={2}>
                     <footer>

@@ -1,10 +1,18 @@
 const translations = {
     translation: {
         checkAllThatApply: 'Check all that apply',
+        clear: 'Clear',
+        close: 'Close',
+        download: 'Download',
         next: 'Next',
         no: 'No',
         noneOfTheAbove: 'None of the above',
+        of: 'of',
         previous: 'Previous',
+        qualification: 'Qualification',
+        save: 'Save',
+        signForm: 'Sign Form',
+        step: 'Step',
         yes: 'Yes',
         affordRentTitle: 'Can you afford your rent?',
         affordRentOptionLostSubstantialIncome: 'My household lost substantial income',
@@ -12,10 +20,11 @@ const translations = {
         affordRentOptionHoursCut: 'My hours were cut',
         affordRentOptionSalaryReduced: 'My salary was reduced',
         affordRentOptionExtraordinaryMedicalCost: 'I have extraordinary medical costs that I pay out of pocket that insurance does not cover',
-        affordRentExtraordinaryExplained: 'An “extraordinary” medical expense is any un-reimbursed medical expense likely to exceed ' +
+        affordRentExtraordinaryExplained: 'An "extraordinary" medical expense is any un-reimbursed medical expense likely to exceed ' +
             '7.5% of one’s adjusted gross income for the year.',
         affordRentExtraordinaryQuestion: 'What are "extraordinary medical costs"?',
         attemptingToPayTitle: 'I am doing my best to pay as much rent as I can, given my circumstances',
+        douglasCountyCaresAct: 'Douglas County CARES Act',
         failedQualificationTitle: 'Sorry, it looks like you don\'t qualify',
         failedQualificationBody: 'If the answers you gave indicate you don\'t qualify, you can restart but please proceed with caution and ' +
             'remember that you must answer these questions truthfully. You could be subject to civil or criminal ' +
@@ -57,11 +66,14 @@ const translations = {
         incomeQualificationsOptionNoIncome: 'I did not report any income to the I.R.S. for 2019',
         incomeQualificationsOptionStimulusCheck: 'I got a stimulus check (Economic Impact Payment) in 2020',
         incomeQualificationsOptionUnderIncomeThreshold: 'I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return',
+        landlordCompany: 'Company',
+        landlordFullName: 'Full name',
         landlordInfoTitle: 'Enter your landlord\'s information',
         landlordInfoBody: 'This information will determine where your letter is sent. You can send this information to go ' +
             'to your landlord, the owner of the property where you live, or another person who has the right ' +
             'to have you evicted or removed from where you live. If you are unsure where to send this notice, ' +
             'please look at your lease or ask your landlord where you may send a legal notice.',
+        legalAidOfNebraska: 'Legal Aid of Nebraska',
         personalInformationTitle: 'Enter your information',
         personalInformationBody: 'We need this information to complete a cover letter to your landlord as well as to ensure that you qualify to use this self-help tool.',
         personalInformationFirstName: 'First Name',
@@ -71,6 +83,8 @@ const translations = {
         personalInformationCity: 'City',
         personalInformationState: 'State',
         personalInformationZip: 'Zip',
+        previewTitle: 'Preview your ready-to-send letter',
+        previewBody: 'We created a form with all your information, please check and make sure it looks correct.',
         qualifiedTitle: 'Great, you qualify! Read the following information carefully.',
         qualifiedBodyAgreeingDescription: 'When you sign the Declaration form, you are agreeing that you understand the following sentences and ' +
             'that they are true:',

@@ -17,8 +17,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {useTheme} from '@material-ui/core/styles';
 import "./signature.css";
 import * as ReactGA from "react-ga";
+import { useTranslation } from 'react-i18next';
 
 export default function PreviewLetter({state, setState, renterInfo, landlordInfo}) {
+    const {t} = useTranslation();
     useEffect(() => ReactGA.pageview('preview/download letter page'), []);
     const [openSignForm, setOpenSignForm] = useState(false);
     const [imageUrl, setImageUrl] = useState("/renters-help/transparent.png");
@@ -51,9 +53,8 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
 
     return (
         <>
-            <Dialog open={openSignForm} onClose={handleSignFormClose} maxWidth={'md'} fullScreen={fullScreen}
-                    aria-labelledby="Sign Form">
-                <DialogTitle>Sign Form</DialogTitle>
+            <Dialog open={openSignForm} onClose={handleSignFormClose} maxWidth={'md'} fullScreen={fullScreen} aria-labelledby={t('signForm')}>
+                <DialogTitle>{t('signForm')}</DialogTitle>
                 <DialogContent>
                     <FlexContainer justifyContent={'center'}>
                         <SignaturePad ref={signaturePad} canvasProps={{className: "signatureCanvas"}}
@@ -61,33 +62,34 @@ export default function PreviewLetter({state, setState, renterInfo, landlordInfo
                     </FlexContainer>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleSignFormClose} variant='contained'>Close</Button>
-                    <Button onClick={handleSignFormClear} variant='contained'>Clear</Button>
-                    <Button onClick={handleSignFormSave} variant='contained' color={'primary'}>Save</Button>
+                    <Button onClick={handleSignFormClose} variant='contained'>{t('close')}</Button>
+                    <Button onClick={handleSignFormClear} variant='contained'>{t('clear')}</Button>
+                    <Button onClick={handleSignFormSave} variant='contained' color={'primary'}>{t('save')}</Button>
                 </DialogActions>
             </Dialog>
 
             <Typography variant='h4' component='h1' className='title'>
-                Preview your ready to send letter
+                {t('previewTitle')}
             </Typography>
             <Typography variant='body1'>
-                We created a form with all your information, please check and make sure it looks correct.
+                {t('previewBody')}
             </Typography>
             <FormControl fullWidth>
-                <PDFViewer height={600}
-                           fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
+                <PDFViewer height={600} fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
                     {letter}
                 </PDFViewer>
             </FormControl>
             <FlexContainer justifyContent={'center'} margin={10}>
                 <Button variant='contained' style={{marginRight: '20px'}}
-                        onClick={() => previousStep(state, setState)}>Previous</Button>
-                <Button variant='contained' onClick={handleSignFormOpen}>Sign Form</Button>
+                        onClick={() => previousStep(state, setState)}>{t('previous')}</Button>
+                <Button variant='contained' onClick={handleSignFormOpen}>{t('signForm')}</Button>
             </FlexContainer>
             <FlexContainer justifyContent={'center'} margin={10}>
                 <PDFDownloadLink style={{textDecoration: 'none'}} document={letter}
                                  fileName={`${renterInfo.lastName}_${renterInfo.firstName}_Protected_Notification.pdf`}>
-                    <Button variant='contained' color='primary' onClick={() => ReactGA.modalview('letter download button clicked')}> Download </Button>
+                    <Button variant='contained' color='primary' onClick={() => ReactGA.modalview('letter download button clicked')}>
+                        {t('download')}
+                    </Button>
                 </PDFDownloadLink>
             </FlexContainer>
         </>
