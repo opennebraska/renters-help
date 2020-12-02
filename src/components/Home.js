@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/styles";
 import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
+import Typography from '@material-ui/core/Typography';
 import {createMuiTheme} from "@material-ui/core";
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import EmailIcon from '@material-ui/icons/Email';
@@ -50,7 +51,7 @@ const theme = createMuiTheme({palette: {primary: {main: '#DC2A44'}}})
 
 export default function Home({state, setState}) {
     const classes = useStyles();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     useEffect(() => ReactGA.pageview('home'), []);
     return (
         <>
@@ -69,11 +70,11 @@ export default function Home({state, setState}) {
                             }}>
                         {t('homeStartButton')}
                     </Button>
-                    {/*<Box pt={3}>*/}
-                    {/*    <Link component={"a"} href={`${process.env.PUBLIC_URL}/?lng=${i18n.language === 'en' ? 'es': 'en'}`}>*/}
-                    {/*        <Typography variant="h6" component={"span"} noWrap>{t('homeLanguagePreference')}</Typography>*/}
-                    {/*    </Link>*/}
-                    {/*</Box>*/}
+                    <Box pt={3}>
+                        <Link component={"a"} href={`${process.env.PUBLIC_URL}/?lng=${i18n.language === 'en' ? 'es': 'en'}`}>
+                            <Typography variant="h6" component={"span"} noWrap>{t('homeLanguagePreference')}</Typography>
+                        </Link>
+                    </Box>
                 </Box>
                 <Box>
                     <div className={classes.block}>
