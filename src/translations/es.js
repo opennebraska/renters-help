@@ -23,7 +23,7 @@ const translations = {
         affordRentExtraordinaryExplained: 'Un gasto médico "extraordinario" es cualquier gasto médico no reembolsado que exceda el 7.5% del ingreso bruto ajustado de una persona ese año.',
         affordRentExtraordinaryQuestion: '¿Qué significa "gastos médicos extraordinarios"?',
         attemptingToPayTitle: 'Estoy haciendo todo lo posible para realizar pagos parciales a tiempo como lo permitan mis circunstancias',
-        douglasCountyCaresAct: 'El Acto CARES en Douglas County',
+        douglasCountyCaresAct: 'Se debe enviar su aplicación antes del 13 de diciembre de 2020',
         failedQualificationTitle: 'Lo sentimos. Parece que no califica.',
         failedQualificationBody: 'Si sus respuestas indican que no califica, se puede reiniciar, pero proceda con precaución y recuerde que tiene que responder honestamente a las preguntas. Usted podría estar sujeto a sanciones civiles o penales si mienta en estos formularios. Si necesita servicios legales, se puede solicitar ayuda gratis de Legal Aid:',
         governmentHelpTitle: '¿Hizo todo lo posible para obtener cualquier asistencia gubernamental que haya disponible para pagar el alquiler?',
