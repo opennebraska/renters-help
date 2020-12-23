@@ -135,8 +135,8 @@ export default function Home({state, setState}) {
                                               target="_blank" rel="nofollow">Legal Aid</Link> toll-free at 1-844-268-5627
                         </Trans>
                     </p>
-                    <p><Link color="primary" href="https://www.douglascounty-ne.gov/coronovirus-relief-fund-information"
-                    target="_blank" rel="nofollow">{t('douglasCountyCaresAct')}</Link></p>
+                    {/*<p><Link color="primary" href="https://www.douglascounty-ne.gov/coronovirus-relief-fund-information"*/}
+                    {/*target="_blank" rel="nofollow">{t('douglasCountyCaresAct')}</Link></p>*/}
                 </Box>
                 <Box pt={2}>
                     <footer>
