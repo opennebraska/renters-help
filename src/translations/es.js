@@ -42,7 +42,7 @@ const translations = {
         homeLanguagePreference: 'Prefer English?',
         homeOtherRentalAssistance: 'Más asistencia para inquilinos',
         homePageTitle: '¿Tiene usted un aviso de <1>desalojo</1>? Esta herramienta le puede ayudar.',
-        homeReasonToUse: "Si tiene problemas con pagar el alquiler, el gobierno federal de los Estados Unidos anunció una moratoria nacional de desalojos para prácticamente todos los inquilinos en EE.UU. (quienes son afectados por la pandemia de COVID-19) hasta el día 31 de diciembre de 2020. Utilice esta herramienta para ver si usted califica y para producir el formulario adecuado (llamada “Declaración”) para enviar a su arrendador/propietario, como es requerido por el orden del gobierno.",
+        homeReasonToUse: "Si tiene problemas con pagar el alquiler, el gobierno federal de los Estados Unidos anunció una moratoria nacional de desalojos para prácticamente todos los inquilinos en EE.UU. (quienes son afectados por la pandemia de COVID-19) hasta el día 31 de enero de 2020. Utilice esta herramienta para ver si usted califica y para producir el formulario adecuado (llamada “Declaración”) para enviar a su arrendador/propietario, como es requerido por el orden del gobierno.",
         homeStartButton: 'Empieza Herramienta Gratis',
         incomeQualificationsTitle: 'Calificación de ingreso',
         incomeQualificationsOptionNoIncome: 'No tuve que presentar una declaración de impuestos para 2019 al Servicio de Impuestos Internos (IRS) de los estados unidos ' +
