@@ -57,7 +57,7 @@ const translations = {
         homePageTitle: 'Are you facing an <1>eviction</1>? This tool can help.',
         homeReasonToUse: "If you're having trouble keeping up with your rent payments, the Federal Government has issued an " +
             "order that prevents " +
-            "landlords in the US from evicting many of their tenants. It is expected to be extended until after January 31, 2020. Use this " +
+            "landlords in the US from evicting many of their tenants until after January 31, 2021. Use this " +
             "tool to see if you are covered, " +
             "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required " +
             "by the order.",
