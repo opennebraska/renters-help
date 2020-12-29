@@ -65,7 +65,7 @@ const translations = {
         incomeQualificationsTitle: 'Income Qualification',
         incomeQualificationsOptionNoIncome: 'I did not report any income to the I.R.S. for 2019',
         incomeQualificationsOptionStimulusCheck: 'I got a stimulus check (Economic Impact Payment) in 2020',
-        incomeQualificationsOptionUnderIncomeThreshold: 'I either expect to earn no more than $99,000 in annual income for calendar year 2021 or no more than $198,000 if filing a joint tax return',
+        incomeQualificationsOptionUnderIncomeThreshold: 'I either expect to earn no more than $99,000 in annual income for calendar year 2020 or no more than $198,000 if filing a joint tax return',
         landlordCompany: 'Company',
         landlordFullName: 'Full name',
         landlordInfoTitle: 'Enter your landlord\'s information',
