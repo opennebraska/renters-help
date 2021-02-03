@@ -57,7 +57,7 @@ const translations = {
         homePageTitle: 'Are you facing an <1>eviction</1>? This tool can help.',
         homeReasonToUse: "If you're having trouble keeping up with your rent payments, the Federal Government has issued an " +
             "order that prevents " +
-            "landlords in the US from evicting many of their tenants until after January 31, 2021. Use this " +
+            "landlords in the US from evicting many of their tenants until after March 31, 2021. Use this " +
             "tool to see if you are covered, " +
             "and to produce the right letter (called a \"Declaration\") to send to your landlord, as required " +
             "by the order.",
@@ -88,9 +88,9 @@ const translations = {
         qualifiedTitle: 'Great, you qualify! Read the following information carefully.',
         qualifiedBodyAgreeingDescription: 'When you sign the Declaration form, you are agreeing that you understand the following sentences and ' +
             'that they are true:',
-        qualifiedBodyProtected: 'Even though I am protected from eviction through December 31, 2020,',
+        qualifiedBodyProtected: 'Even though I am protected from eviction through March 31, 2021,',
         qualifiedBodyAgreeingStillResponsible: 'I still am responsible to pay my rent and follow all other rules of my lease. My landlord may charge me fees or interest.',
-        qualifiedBodyAgreeingPayInFullAfterDate: 'After December 31, 2020, I may be required to pay all of the rent due, in full.',
+        qualifiedBodyAgreeingPayInFullAfterDate: 'After March 31, 2021, I may be required to pay all of the rent due, in full.',
         qualifiedBodyAgreeingTellTheTruth: 'I need to tell the truth on this form. If I do not, I may face civil or criminal penalties.',
         qualifiedBodyConfirmUnderstanding: 'I Understand',
         startTitle: 'How to stay in your home',
