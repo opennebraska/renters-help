@@ -140,8 +140,8 @@ export default function Home({state, setState}) {
                 </Box>
                 <Box pt={2}>
                     <footer>
-                        <p><Link color="primary" href="https://codefornebraska.org/" target="_blank" rel="nofollow">2020
-                            Code for Nebraska</Link></p>
+                        <p><Link color="primary" href="https://codefornebraska.org/" target="_blank" rel="nofollow">
+                            Code for Nebraska {new Date().getFullYear()}</Link></p>
                     </footer>
                 </Box>
             </div>
