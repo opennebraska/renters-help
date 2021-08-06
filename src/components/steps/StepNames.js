@@ -5,8 +5,9 @@ export const QualificationSteps = {
     AFFORD_RENT: 3,
     UNSAFE_LIVING_CONDITIONS: 4,
     ATTEMPTING_TO_PAY: 5,
-    QUALIFIED: 6,
-    FINAL_STEP: 6
+    HIGH_COVID_RATE: 6,
+    QUALIFIED: 7,
+    FINAL_STEP: 7
 }
 
 export const LetterBuilderSteps = {

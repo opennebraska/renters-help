@@ -50,7 +50,6 @@ export default function GovernmentHelp({state, setState}) {
     }
     return (<React.Fragment>
         <Typography variant='h4' component='h1' className='title'>{t('governmentHelpTitle')}</Typography>
-        <Typography variant='body1'>{t('governmentHelpTitle')}</Typography>
         <FormControl component="fieldset" className={classes.formControl}>
             <RadioGroup value={selected} onChange={handleChange}>
                 <FormControlLabel value="Yes" control={<Radio color='primary'/>} label={t('yes')}/>

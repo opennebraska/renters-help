@@ -22,6 +22,7 @@ import Link from "@material-ui/core/Link";
 import {createMuiTheme} from "@material-ui/core";
 import {ThemeProvider} from "@material-ui/styles";
 import FlexContainer from "./FlexContainer";
+import HighCovidRate from "./steps/qualification/HighCovidRate";
 
 export default function FormContainer() {
   const [state, setState] = useState({
@@ -67,6 +68,7 @@ export default function FormContainer() {
                       <AffordRent state={state} setState={setState}/>
                       <UnsafeLivingConditions state={state} setState={setState}/>
                       <AttemptingToPay state={state} setState={setState}/>
+                      <HighCovidRate state={state} setState={setState} />
                       <Qualified state={state} setState={setState}/>
                     </form>
                     }

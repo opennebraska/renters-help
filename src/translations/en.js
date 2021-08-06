@@ -37,6 +37,7 @@ const translations = {
         governmentHelpBestEffortsQuestion: 'What are "best efforts" and "government help"?',
         governmentHelpBestEffortsExplanation: '"Government help" means any governmental rental or housing payment benefits available to the individual ' +
             'or any household member. "Best efforts" is not defined by the Order. You should document whether your any applications were successful.',
+        highCovidRateTitle: 'Is your county experiencing substantial or high rates of community transmission of COVID-19',
         homeAboutHeader: 'About Nebraska Renters Help',
         homeAboutInfo: 'Nebraska Renters Help was built by Code for Nebraska. ' +
             'The purpose of the site is to provide self-help tools and resources so struggling ' +
