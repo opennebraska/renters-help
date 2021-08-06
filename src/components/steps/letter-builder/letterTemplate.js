@@ -69,7 +69,7 @@ export const getLetter = (renterInfo, landlordInfo, imageUrl) => {
           </View>
           <View style={styles.section}>
             <Text>
-              I am writing you to express my right to not be evicted through June 30, 2021 because I am
+              I am writing you to express my right to not be evicted through October 3, 2021 because I am
               unable to pay my rent due to the COVID-19 pandemic. I have this right under the Centers for
               Disease Control and Prevention's ("CDC") Order effective September 4, 2020. The CDC issued this
               Order as an emergency action authorized by Section 361 of the Public Health Act and 42 CFR 70.2
